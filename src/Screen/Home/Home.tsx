@@ -1,0 +1,157 @@
+import React, { ReactElement, useEffect, useRef } from 'react';
+import { Alert, ScrollView, StyleSheet, View } from 'react-native';
+
+import { useNavigation } from '@react-navigation/native';
+import { SubmitHandler, FormHandles } from '@unform/core';
+import { Form } from '@unform/mobile';
+import { Button } from 'react-native-elements';
+import Yup from '../../Helper/Yup';
+
+import { useAuth } from '../../Context/Auth';
+import { ActionType } from '../../Store/Action/ActionType';
+
+import { InputEmail, InputPassword } from '../../Component/Form/Form';
+import { ImageBg } from '../../Component/Image/ImageBg';
+import { Spacer } from '../../Component/Layout/Spacer';
+import { P } from '../../Component/Text/P';
+import { Span } from '../../Component/Text/Span';
+import { Title2, Title4 } from '../../Component/Text/Title';
+
+import { button } from '../../Style/Button';
+import { inputSecondary } from '../../Style/Form';
+import { layout } from '../../Style/Layout';
+import { variable } from '../../Style/variable';
+
+import ImageHomeTop from '../../Asset/Image/home-top.png';
+import SvgKey from '../../Asset/Svg/svg-key.svg';
+import SvgUser from '../../Asset/Svg/svg-user.svg';
+
+interface FormLoginProps {
+    email: string;
+    password: string;
+}
+
+export default function Home(): ReactElement {
+    // VARIABLE
+    const initialData: FormLoginProps = {
+        email: '',
+        password: ''
+    };
+    const navigation = useNavigation();
+
+    // STYLE
+    const styles = StyleSheet.create({
+        homeTop: {
+            width: '100%'
+        },
+        login: {
+            width: '100%'
+        }
+    });
+
+    // CONTEXT
+    const { stateAuth, actions } = useAuth();
+
+    // STATE
+    const { error, status } = stateAuth;
+
+    useEffect(() => {
+        if (error) {
+            Alert.alert('Erro:', error, [{ text: 'Fechar' }]);
+        }
+
+        if (status === ActionType.LOGGED_IN) {
+            navigation.navigate('Cursos');
+        }
+
+        return undefined;
+    }, [error, navigation, status]);
+
+    // FORM
+    const formRef = useRef<FormHandles>(null);
+
+    const handleSubmit: SubmitHandler<FormLoginProps> = async (data) => {
+        try {
+            const schema = Yup.object().shape({
+                email: Yup.string().email().required(),
+                password: Yup.string().min(6).required()
+            });
+
+            await schema
+                .validate(data, {
+                    abortEarly: false
+                })
+                .then(() => {
+                    actions?.login(data);
+                });
+
+            formRef.current?.setErrors({});
+        } catch (err) {
+            if (err instanceof Yup.ValidationError) {
+                const errorMessages: { [key: string]: any } = {};
+
+                err.inner.forEach((item: any) => {
+                    errorMessages[item.path] = item.message;
+                });
+
+                formRef.current?.setErrors(errorMessages);
+            }
+        }
+    };
+
+    return (
+        <ImageBg source={ImageHomeTop}>
+            <ScrollView style={{ ...layout.container, ...styles.homeTop }}>
+                <Spacer height={25} />
+
+                <Title4 color={variable.colorWhite} textAlign="center">
+                    LIBERTA EDUCAÇÃO
+                </Title4>
+
+                <Spacer />
+
+                <Title2 color={variable.colorWhite} textAlign="center">
+                    Aqui você aprende a{'\n'}
+                    <Span bold={true} color={variable.colorPrimary}>
+                        investir melhor
+                    </Span>
+                </Title2>
+
+                <Spacer />
+
+                <P color={variable.colorWhite} textAlign="center">
+                    Para cursos grátis, calculadoras de investimentos, entrevistas e vídeos e podcasts exclusivos, cadastre-se na melhor plataforma de
+                    Educação Financeira do Brasil.
+                </P>
+
+                <Spacer height={20} />
+
+                <View style={styles.login}>
+                    <Form initialData={initialData} onSubmit={handleSubmit} ref={formRef}>
+                        <View>
+                            <View>
+                                <InputEmail leftIcon={<SvgUser height="25px" width="25px" fill={variable.colorPrimary} />} theme={inputSecondary} />
+                            </View>
+                        </View>
+
+                        <View>
+                            <View>
+                                <InputPassword leftIcon={<SvgKey height="25px" width="25px" fill={variable.colorPrimary} />} theme={inputSecondary} />
+                            </View>
+                        </View>
+
+                        <View>
+                            <Button
+                                buttonStyle={button.buttonPrimary}
+                                disabled={status === ActionType.ATTEMPTING}
+                                onPress={(): any => formRef.current?.submitForm()}
+                                title="Entrar"
+                                type="solid"
+                            />
+                        </View>
+                    </Form>
+                </View>
+            </ScrollView>
+        </ImageBg>
+    );
+}
