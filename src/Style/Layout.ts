@@ -12,15 +12,6 @@ export const layout = StyleSheet.create({
     content: {
         flex: 1
     },
-    footerAdmin: {
-        backgroundColor: variable.colorGrayDark,
-        flex: 0,
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        justifyContent: 'center',
-        minHeight: variable.footerHeight,
-        padding: variable.padding
-    },
     footerDefault: {
         backgroundColor: variable.colorGrayDark,
         flex: 0,

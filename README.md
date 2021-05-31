@@ -366,6 +366,8 @@ stateNotifications.length > 0;
 
 -   Não se deve usar um componente de listagem do React Native (ex: FlatList) dentro de um componente ScrollView, por isso o ScrollView é utilizado somente nos locais necessários e não direto no componente de layout pai
 
+-   Evitar utilizar estilos no componente de ScrollView, neste componente algumas propriedades não funcionam
+
 #### FONTS
 
 -   [Custom fonts](https://mehrankhandev.medium.com/ultimate-guide-to-use-custom-fonts-in-react-native-77fcdf859cf4)

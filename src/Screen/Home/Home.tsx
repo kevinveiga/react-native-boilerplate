@@ -108,57 +108,65 @@ export default function Home(): ReactElement {
 
     return (
         <ImageBg source={ImageHomeTop}>
-            <ScrollView style={{ ...layout.container, ...styles.homeTop }}>
-                <Spacer height={25} />
+            <View style={{ ...layout.container, ...styles.homeTop }}>
+                <ScrollView>
+                    <Spacer height={25} />
 
-                <Title4 color={variable.colorWhite} textAlign="center">
-                    LIBERTA EDUCAÇÃO
-                </Title4>
+                    <Title4 color={variable.colorWhite} textAlign="center">
+                        LIBERTA EDUCAÇÃO
+                    </Title4>
 
-                <Spacer />
+                    <Spacer />
 
-                <Title2 color={variable.colorWhite} textAlign="center">
-                    Aqui você aprende a{'\n'}
-                    <Span bold={true} color={variable.colorPrimary}>
-                        investir melhor
-                    </Span>
-                </Title2>
+                    <Title2 color={variable.colorWhite} textAlign="center">
+                        Aqui você aprende a{'\n'}
+                        <Span bold={true} color={variable.colorPrimary}>
+                            investir melhor
+                        </Span>
+                    </Title2>
 
-                <Spacer />
+                    <Spacer />
 
-                <P color={variable.colorWhite} textAlign="center">
-                    Para cursos grátis, calculadoras de investimentos, entrevistas e vídeos e podcasts exclusivos, cadastre-se na melhor plataforma de
-                    Educação Financeira do Brasil.
-                </P>
+                    <P color={variable.colorWhite} textAlign="center">
+                        Para cursos grátis, calculadoras de investimentos, entrevistas e vídeos e podcasts exclusivos, cadastre-se na melhor
+                        plataforma de Educação Financeira do Brasil.
+                    </P>
 
-                <Spacer height={20} />
+                    <Spacer height={20} />
 
-                <View style={styles.login}>
-                    <Form initialData={initialData} onSubmit={handleSubmit} ref={formRef}>
-                        <View>
+                    <View style={styles.login}>
+                        <Form initialData={initialData} onSubmit={handleSubmit} ref={formRef}>
                             <View>
-                                <InputEmail leftIcon={<SvgUser height="25px" width="25px" fill={variable.colorPrimary} />} theme={inputSecondary} />
+                                <View>
+                                    <InputEmail
+                                        leftIcon={<SvgUser height="25px" width="25px" fill={variable.colorPrimary} />}
+                                        theme={inputSecondary}
+                                    />
+                                </View>
                             </View>
-                        </View>
 
-                        <View>
                             <View>
-                                <InputPassword leftIcon={<SvgKey height="25px" width="25px" fill={variable.colorPrimary} />} theme={inputSecondary} />
+                                <View>
+                                    <InputPassword
+                                        leftIcon={<SvgKey height="25px" width="25px" fill={variable.colorPrimary} />}
+                                        theme={inputSecondary}
+                                    />
+                                </View>
                             </View>
-                        </View>
 
-                        <View>
-                            <Button
-                                buttonStyle={button.buttonPrimary}
-                                disabled={status === ActionType.ATTEMPTING}
-                                onPress={(): any => formRef.current?.submitForm()}
-                                title="Entrar"
-                                type="solid"
-                            />
-                        </View>
-                    </Form>
-                </View>
-            </ScrollView>
+                            <View>
+                                <Button
+                                    buttonStyle={button.buttonPrimary}
+                                    disabled={status === ActionType.ATTEMPTING}
+                                    onPress={(): any => formRef.current?.submitForm()}
+                                    title="Entrar"
+                                    type="solid"
+                                />
+                            </View>
+                        </Form>
+                    </View>
+                </ScrollView>
+            </View>
         </ImageBg>
     );
 }
