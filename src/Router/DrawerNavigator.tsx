@@ -209,12 +209,12 @@ export default function DrawerNavigator(): ReactElement {
                         {(): ReactElement => (
                             <Layout>
                                 <ErrorBoundary>
-                                    {/* Se não precisa de autenticação, exibe componente */}
+                                    {/* Exibe componente que não precisa de autenticação */}
                                     {!authRequired && <Component />}
 
                                     {/* Se estiver logado, verifica se a rota precisa de autenticação e autorização Cliente Liberta,
-                                        verifica se usuário tem essa autorização Cliente Liberta (dataAuth?.is_cliente_liberta),
-                                        caso não tenha, envia para informações de Cliente Liberta. */}
+                                        verifica se o usuário tem essa autorização Cliente Liberta (dataAuth?.is_cliente_liberta),
+                                        caso não tenha, mostra para informações de Cliente Liberta. */}
                                     {status === ActionType.LOGGED_IN &&
                                         authRequired &&
                                         (hasClienteLiberta && dataAuth?.is_cliente_liberta === false ? <MinhaContaClientesLiberta /> : <Component />)}

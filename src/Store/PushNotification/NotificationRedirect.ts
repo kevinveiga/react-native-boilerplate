@@ -1,12 +1,13 @@
 import { FirebaseMessagingTypes } from '@react-native-firebase/messaging';
 
 import { MessageProps } from '../../Entity/PushNotification';
+import { RouteParams } from '../../Entity/RouteParams';
 import { navigate } from '../../Router/RootNavigation';
 
-export const NotificationRedirect = (remoteMessage: FirebaseMessagingTypes.RemoteMessage | MessageProps): void => {
-    const { data: { id = 0, routeName = null, title = '' } = {} } = remoteMessage || {};
+export const notificationRedirect = (remoteMessage: FirebaseMessagingTypes.RemoteMessage | MessageProps): void => {
+    const { id = 0, routeName = null, title = '' } = (remoteMessage.data as RouteParams) || {};
 
     if (routeName) {
-        navigate(routeName as string, { params: { id: id, title: title } });
+        navigate(routeName, { id: id, title: title });
     }
 };

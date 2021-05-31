@@ -5,7 +5,7 @@ import dayjs from 'dayjs';
 
 import { usePushNotification } from '../../Context/PushNotification';
 import { alertCancelOk } from '../../Helper/AlertCancelOk';
-import { NotificationRedirect } from '../../Store/PushNotification/NotificationRedirect';
+import { notificationRedirect } from '../../Store/PushNotification/NotificationRedirect';
 
 import { Spacer } from '../../Component/Layout/Spacer';
 import { P } from '../../Component/Text/P';
@@ -69,7 +69,7 @@ export default function Notificacoes(): ReactElement {
                                             onPress={(): any =>
                                                 actions
                                                     ?.readed(item.messageId)
-                                                    .then(() => NotificationRedirect(item))
+                                                    .then(() => notificationRedirect(item))
                                                     .catch(() => null)
                                             }
                                         >

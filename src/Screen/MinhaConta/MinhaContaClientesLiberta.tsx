@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react';
-import { View } from 'react-native';
+import { ScrollView, View } from 'react-native';
 
 import { Card } from 'react-native-elements';
 
@@ -12,7 +12,7 @@ import { variable } from '../../Style/variable';
 
 export default function MinhaContaClientesLiberta(): ReactElement {
     return (
-        <View style={layout.container}>
+        <ScrollView style={layout.container}>
             <Title2>Clientes Liberta</Title2>
 
             <P>Área exclusiva para clientes com relatórios econômicos e oportunidades de produtos financeiros para diferentes perfis.</P>
@@ -72,6 +72,6 @@ export default function MinhaContaClientesLiberta(): ReactElement {
                     <P>Tudo o que você precisa saber para declarar o seu Imposto de Renda.</P>
                 </Card>
             </View>
-        </View>
+        </ScrollView>
     );
 }

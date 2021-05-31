@@ -1,13 +1,14 @@
 import React, { ReactElement, useEffect, useRef } from 'react';
 import { Alert, ScrollView, StyleSheet, View } from 'react-native';
 
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import { SubmitHandler, FormHandles } from '@unform/core';
 import { Form } from '@unform/mobile';
 import { Button } from 'react-native-elements';
 import Yup from '../../Helper/Yup';
 
 import { useAuth } from '../../Context/Auth';
+import { RouteParams } from '../../Entity/RouteParams';
 import { ActionType } from '../../Store/Action/ActionType';
 
 import { InputEmail, InputPassword } from '../../Component/Form/Form';
@@ -37,7 +38,6 @@ export default function Home(): ReactElement {
         email: '',
         password: ''
     };
-    const navigation = useNavigation();
 
     // STYLE
     const styles = StyleSheet.create({
@@ -51,9 +51,12 @@ export default function Home(): ReactElement {
 
     // CONTEXT
     const { stateAuth, actions } = useAuth();
+    const navigation = useNavigation();
+    const route = useRoute();
 
     // STATE
     const { error, status } = stateAuth;
+    const { routeParams, routeToRedirect } = (route.params as RouteParams) || {};
 
     useEffect(() => {
         if (error) {
@@ -61,11 +64,15 @@ export default function Home(): ReactElement {
         }
 
         if (status === ActionType.LOGGED_IN) {
-            navigation.navigate('Cursos');
+            if (routeToRedirect) {
+                navigation.navigate(routeToRedirect, routeParams);
+            } else {
+                navigation.navigate('Cursos');
+            }
         }
 
         return undefined;
-    }, [error, navigation, status]);
+    }, [error, navigation, routeParams, routeToRedirect, status]);
 
     // FORM
     const formRef = useRef<FormHandles>(null);

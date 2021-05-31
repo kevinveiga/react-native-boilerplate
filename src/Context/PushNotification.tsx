@@ -8,7 +8,7 @@ import { storageNotificationName } from '../Config';
 import { getStorageJson, removeStorage, setStorage } from '../Service/Storage';
 import { ActionType } from '../Store/Action/ActionType';
 import { addNotificationToStorage } from '../Store/PushNotification/AddNotificationToStorage';
-import { NotificationRedirect } from '../Store/PushNotification/NotificationRedirect';
+import { notificationRedirect } from '../Store/PushNotification/NotificationRedirect';
 import { PushNotificationProps, pushNotificationReducer, initialState } from '../Store/Reducer/PushNotification';
 
 interface ActionsProps {
@@ -249,7 +249,7 @@ export function PushNotificationProvider({ children }: PropsWithChildren<any>): 
                         // Atualiza statePushNotification e marca notReaded como false
                         actions
                             ?.readed(remoteMessage.messageId)
-                            .then(() => NotificationRedirect(remoteMessage))
+                            .then(() => notificationRedirect(remoteMessage))
                             .catch(() => null);
 
                         console.log('Push Notification opened app from quit state: ', JSON.stringify(remoteMessage));
@@ -290,7 +290,7 @@ export function PushNotificationProvider({ children }: PropsWithChildren<any>): 
                 // Atualiza statePushNotification e marca notReaded como false
                 await actions
                     ?.readed(remoteMessage.messageId)
-                    .then(() => NotificationRedirect(remoteMessage))
+                    .then(() => notificationRedirect(remoteMessage))
                     .catch(() => null);
             }
 
