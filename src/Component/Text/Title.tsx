@@ -5,7 +5,7 @@ import { Text } from 'react-native-elements';
 
 import { variable } from '../../Style/variable';
 
-interface TitleProps {
+interface ITitle {
     bold?: boolean;
     children?: number | ReactNode | string;
     color?: ColorValue;
@@ -14,7 +14,7 @@ interface TitleProps {
     textDecorationLine?: 'none' | 'underline' | 'line-through' | 'underline line-through';
 }
 
-export function Title1({ bold = true, children, color, fontSize = 30, textAlign, textDecorationLine }: TitleProps): ReactElement {
+export function Title1({ bold = true, children, color, fontSize = 30, textAlign, textDecorationLine }: ITitle): ReactElement {
     const styleObj: { [key: string]: any } = {
         color: color,
         fontFamily: bold ? variable.fontPrimaryBold : variable.fontPrimaryRegular,
@@ -45,7 +45,7 @@ export function Title1({ bold = true, children, color, fontSize = 30, textAlign,
     return <Text style={styles.title}>{children}</Text>;
 }
 
-export function Title2({ bold = true, children, color, fontSize = 26, textAlign = 'left' }: TitleProps): ReactElement {
+export function Title2({ bold = true, children, color, fontSize = 26, textAlign = 'left' }: ITitle): ReactElement {
     const styleObj: { [key: string]: any } = {
         color: color,
         fontFamily: bold ? variable.fontPrimaryBold : variable.fontPrimaryRegular,
@@ -75,7 +75,7 @@ export function Title2({ bold = true, children, color, fontSize = 26, textAlign 
     return <Text style={styles.title}>{children}</Text>;
 }
 
-export function Title3({ bold = false, children, color, fontSize = 22, textAlign = 'left' }: TitleProps): ReactElement {
+export function Title3({ bold = false, children, color, fontSize = 22, textAlign = 'left' }: ITitle): ReactElement {
     const styleObj: { [key: string]: any } = {
         color: color,
         fontFamily: bold ? variable.fontPrimaryBold : variable.fontPrimaryRegular,
@@ -105,7 +105,7 @@ export function Title3({ bold = false, children, color, fontSize = 22, textAlign
     return <Text style={styles.title}>{children}</Text>;
 }
 
-export function Title4({ bold = false, children, color, fontSize = 18, textAlign = 'left' }: TitleProps): ReactElement {
+export function Title4({ bold = false, children, color, fontSize = 18, textAlign = 'left' }: ITitle): ReactElement {
     const styleObj: { [key: string]: any } = {
         color: color,
         fontFamily: bold ? variable.fontPrimaryBold : variable.fontPrimaryRegular,

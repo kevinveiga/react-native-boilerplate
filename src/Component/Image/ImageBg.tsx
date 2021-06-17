@@ -1,7 +1,7 @@
 import React, { ReactElement, ReactNode } from 'react';
 import { FlexAlignType, ImageBackground, ImageResizeMode, ImageSourcePropType, StyleSheet } from 'react-native';
 
-interface ImageBgProps {
+interface IImageBg {
     alignContent?: 'flex-start' | 'flex-end' | 'center' | 'stretch' | 'space-between' | 'space-around';
     alignItems?: FlexAlignType;
     children?: ReactNode;
@@ -19,7 +19,7 @@ export function ImageBg({
     justifyContent = 'center',
     resizeMode = 'cover',
     source
-}: ImageBgProps): ReactElement {
+}: IImageBg): ReactElement {
     const styles = StyleSheet.create({
         imageBg: {
             alignContent: alignContent,

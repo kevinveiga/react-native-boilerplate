@@ -6,7 +6,7 @@ import { DrawerActions } from '@react-navigation/native';
 
 import { useAuth } from '../Context/Auth';
 import { usePushNotification } from '../Context/PushNotification';
-import { routes, RoutesProps } from './Routes';
+import { routes, IRoutes } from './Routes';
 import { ActionType } from '../Store/Action/ActionType';
 
 import { ErrorBoundary } from '../Component/ErrorBoundary/ErrorBoundary';
@@ -51,7 +51,7 @@ function MenuDrawerContent({ descriptors, navigation, state, props }: any): Reac
                     .sort((a, b) => {
                         return (a.order || 0) - (b.order || 0);
                     })
-                    .map(({ authRequired = true, routeLabel, showInMenu = true }: RoutesProps) => {
+                    .map(({ authRequired = true, routeLabel, showInMenu = true }: IRoutes) => {
                         const { key } = state.routes[state.routes.findIndex((item: any) => item.name === routeLabel)];
                         const { activeTintColor, drawerLabel, inactiveTintColor } = descriptors[key].options;
 
@@ -165,7 +165,7 @@ export default function DrawerNavigator(): ReactElement {
             initialRouteName={status === ActionType.LOGGED_IN ? 'Cursos' : 'Home'}
             screenOptions={{ ...header, headerTitleAlign: 'center' }}
         >
-            {routes.map(({ authRequired = true, component: Component, hasClienteLiberta = false, layout: Layout, routeLabel }: RoutesProps) => {
+            {routes.map(({ authRequired = true, component: Component, hasClienteLiberta = false, layout: Layout, routeLabel }: IRoutes) => {
                 return (
                     <Drawer.Screen
                         key={routeLabel}

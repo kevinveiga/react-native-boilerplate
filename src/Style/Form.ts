@@ -5,7 +5,7 @@ import { variable } from './variable';
 
 const { Input } = theme;
 
-export interface InputStyleProps {
+export interface IInputStyle {
     containerStyle?: StyleProp<ViewStyle | TextStyle>;
     inputContainerStyle?: StyleProp<ViewStyle | TextStyle>;
     inputStyle?: StyleProp<ViewStyle | TextStyle>;

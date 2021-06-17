@@ -1,4 +1,4 @@
-export interface MessageProps {
+export interface IMessage {
     data: Record<string, unknown>;
     date: string;
     messageId: string;

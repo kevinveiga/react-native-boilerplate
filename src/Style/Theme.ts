@@ -2,7 +2,7 @@ import { ImageStyle, ViewStyle, TextStyle } from 'react-native';
 
 import { variable } from './variable';
 
-interface ThemeProps {
+interface ITheme {
     Avatar?: {
         rounded?: boolean;
     };
@@ -75,7 +75,7 @@ interface ThemeProps {
     };
 }
 
-export const theme: ThemeProps = {
+export const theme: ITheme = {
     Avatar: {
         rounded: true
     },

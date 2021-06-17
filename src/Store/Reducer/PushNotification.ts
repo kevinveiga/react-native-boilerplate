@@ -1,21 +1,21 @@
 import { ActionType } from '../Action/ActionType';
-import { MessageProps } from '../../Entity/PushNotification';
+import { IMessage } from '../../Entity/PushNotification';
 
-export interface PushNotificationAction {
+interface IPushNotificationAction {
     error?: string | null;
-    payload?: MessageProps[] | null;
+    payload?: IMessage[] | null;
     type: ActionType;
 }
 
-export interface PushNotificationProps {
-    data?: MessageProps[] | null;
+interface IPushNotification {
+    data?: IMessage[] | null;
 }
 
-export const initialState: PushNotificationProps = {
+export const initialState: IPushNotification = {
     data: undefined
 };
 
-export function pushNotificationReducer(state: PushNotificationProps, action: PushNotificationAction): PushNotificationProps {
+export function pushNotificationReducer(state: IPushNotification, action: IPushNotificationAction): IPushNotification {
     switch (action.type) {
         case ActionType.FAILED:
             return {

@@ -6,20 +6,20 @@ import { Input } from 'react-native-elements';
 
 import { maskCep, maskCurrency, maskPhone } from '../../Helper/Mask';
 
-import { inputPrimary, InputStyleProps } from '../../Style/Form';
+import { inputPrimary, IInputStyle } from '../../Style/Form';
 import { variable } from '../../Style/variable';
 
-interface InputProps extends TextInputProps {
+interface IInput extends TextInputProps {
     maxLength?: number;
     minLength?: number;
     name?: string;
     label?: string;
     leftIcon?: ReactElement;
     rightIcon?: ReactElement;
-    theme?: InputStyleProps;
+    theme?: IInputStyle;
 }
 
-interface InputReference extends TextInput {
+interface IInputReference extends TextInput {
     value: string;
 }
 
@@ -32,8 +32,8 @@ export function InputCep({
     rightIcon,
     theme = inputPrimary,
     ...props
-}: InputProps): ReactElement {
-    const inputRef = useRef<InputReference>(null);
+}: IInput): ReactElement {
+    const inputRef = useRef<IInputReference>(null);
 
     const { defaultValue, error, fieldName, registerField } = useField(name);
 
@@ -87,8 +87,8 @@ export function InputCurrency({
     rightIcon,
     theme = inputPrimary,
     ...props
-}: InputProps): ReactElement {
-    const inputRef = useRef<InputReference>(null);
+}: IInput): ReactElement {
+    const inputRef = useRef<IInputReference>(null);
 
     const { defaultValue, error, fieldName, registerField } = useField(name);
 
@@ -143,8 +143,8 @@ export function InputDefault({
     rightIcon,
     theme = inputPrimary,
     ...props
-}: InputProps): ReactElement {
-    const inputRef = useRef<InputReference>(null);
+}: IInput): ReactElement {
+    const inputRef = useRef<IInputReference>(null);
 
     const { defaultValue, error, fieldName, registerField } = useField(name);
 
@@ -225,8 +225,8 @@ export function InputEmail({
     rightIcon,
     theme = inputPrimary,
     ...props
-}: InputProps): ReactElement {
-    const inputRef = useRef<InputReference>(null);
+}: IInput): ReactElement {
+    const inputRef = useRef<IInputReference>(null);
 
     const { defaultValue, error, fieldName, registerField } = useField(name);
 
@@ -309,8 +309,8 @@ export function InputPassword({
     rightIcon,
     theme = inputPrimary,
     ...props
-}: InputProps): ReactElement {
-    const inputRef = useRef<InputReference>(null);
+}: IInput): ReactElement {
+    const inputRef = useRef<IInputReference>(null);
 
     const { defaultValue, error, fieldName, registerField } = useField(name);
 
@@ -393,8 +393,8 @@ export function InputPhone({
     rightIcon,
     theme = inputPrimary,
     ...props
-}: InputProps): ReactElement {
-    const inputRef = useRef<InputReference>(null);
+}: IInput): ReactElement {
+    const inputRef = useRef<IInputReference>(null);
 
     const { defaultValue, error, fieldName, registerField } = useField(name);
 

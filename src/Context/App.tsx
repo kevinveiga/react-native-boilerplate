@@ -5,11 +5,11 @@ import { useAxiosInterceptor } from '../Store/AxiosInterceptor/AxiosInterceptor'
 import { layout } from '../Style/Layout';
 import { variable } from '../Style/variable';
 
-interface AppContextProps {
+interface IAppContext {
     setStateLoader: Dispatch<SetStateAction<boolean>>;
 }
 
-const AppContext = createContext<AppContextProps>({
+const AppContext = createContext<IAppContext>({
     setStateLoader: (): boolean => false
 });
 
@@ -34,7 +34,7 @@ export function AppProvider({ children }: PropsWithChildren<any>): ReactElement 
     );
 }
 
-export function useApp(): AppContextProps {
+export function useApp(): IAppContext {
     const context = useContext(AppContext);
 
     if (context === undefined) {

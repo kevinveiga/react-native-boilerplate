@@ -16,7 +16,7 @@ import * as MinhaConta from '../Screen/MinhaConta';
  * @param {string} routeLabel - Label da rota
  * @param {boolean} showInMenu - Mostra no menu
  */
-export interface RoutesProps {
+export interface IRoutes {
     authRequired?: boolean;
     component: ComponentType<ComponentProps<any>> | ComponentType<any>;
     hasClienteLiberta?: boolean;
@@ -26,7 +26,7 @@ export interface RoutesProps {
     showInMenu?: boolean;
 }
 
-export const routes: RoutesProps[] = [
+export const routes: IRoutes[] = [
     {
         authRequired: false,
         component: Home,

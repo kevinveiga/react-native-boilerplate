@@ -1,25 +1,25 @@
 import { ActionType } from '../Action/ActionType';
-import { AuthDataProps } from '../../Entity/Auth';
+import { IAuthData } from '../../Entity/Auth';
 
-export interface AuthAction {
+interface IAuthAction {
     error?: string | null;
-    payload?: AuthDataProps | null;
+    payload?: IAuthData | null;
     type: ActionType;
 }
 
-export interface AuthProps {
-    data?: AuthDataProps | null;
+export interface IAuth {
+    data?: IAuthData | null;
     error?: string | null;
     status?: ActionType;
 }
 
-export const initialState: AuthProps = {
+export const initialState: IAuth = {
     data: undefined,
     error: '',
     status: ActionType.INITIATED
 };
 
-export function authReducer(state: AuthProps, action: AuthAction): AuthProps {
+export function authReducer(state: IAuth, action: IAuthAction): IAuth {
     switch (action.type) {
         case ActionType.ATTEMPTING:
             return {

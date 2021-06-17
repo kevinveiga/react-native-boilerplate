@@ -1,9 +1,9 @@
-interface MaskProps {
+interface IMask {
     cleanValue: string;
     formattedValue: string;
 }
 
-export const maskCep = (value: string): MaskProps => {
+export const maskCep = (value: string): IMask => {
     const newValue = value.replace(/\D/g, '');
     const cleanValue = newValue;
 
@@ -18,7 +18,7 @@ export const maskCep = (value: string): MaskProps => {
     return { cleanValue, formattedValue };
 };
 
-export const maskCurrency = (value: string): MaskProps => {
+export const maskCurrency = (value: string): IMask => {
     const newValue = value.replace(/\D/g, '');
     const cleanValue = newValue;
 
@@ -33,7 +33,7 @@ export const maskCurrency = (value: string): MaskProps => {
     return { cleanValue, formattedValue };
 };
 
-export const maskPhone = (value: string): MaskProps => {
+export const maskPhone = (value: string): IMask => {
     const newValue = value.replace(/\D/g, '');
     const cleanValue = newValue;
 

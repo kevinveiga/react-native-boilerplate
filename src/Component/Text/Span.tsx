@@ -5,7 +5,7 @@ import { Text } from 'react-native-elements';
 
 import { variable } from '../../Style/variable';
 
-interface SpanProps {
+interface ISpan {
     bold?: boolean;
     children?: number | string;
     color?: ColorValue;
@@ -13,7 +13,7 @@ interface SpanProps {
     textDecorationLine?: 'none' | 'underline' | 'line-through' | 'underline line-through';
 }
 
-export function Span({ bold = false, children, color, fontSize, textDecorationLine }: SpanProps): ReactElement {
+export function Span({ bold = false, children, color, fontSize, textDecorationLine }: ISpan): ReactElement {
     const styleObj: { [key: string]: any } = {
         color: color,
         fontFamily: bold ? variable.fontPrimaryBold : variable.fontPrimaryRegular,

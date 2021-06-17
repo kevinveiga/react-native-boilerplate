@@ -1,12 +1,12 @@
 import { Alert } from 'react-native';
 
-interface alertCancelOkProps {
+interface IAlertCancelOk {
     callback?: any;
     message?: string;
     title: string;
 }
 
-export const alertCancelOk = ({ callback, message, title }: alertCancelOkProps): void => {
+export const alertCancelOk = ({ callback, message, title }: IAlertCancelOk): void => {
     Alert.alert(title, message, [
         {
             text: 'Cancelar',

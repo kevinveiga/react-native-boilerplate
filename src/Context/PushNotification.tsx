@@ -9,21 +9,21 @@ import { getStorageJson, removeStorage, setStorage } from '../Service/Storage';
 import { ActionType } from '../Store/Action/ActionType';
 import { addNotificationToStorage } from '../Store/PushNotification/AddNotificationToStorage';
 import { notificationRedirect } from '../Store/PushNotification/NotificationRedirect';
-import { PushNotificationProps, pushNotificationReducer, initialState } from '../Store/Reducer/PushNotification';
+import { IPushNotification, pushNotificationReducer, initialState } from '../Store/Reducer/PushNotification';
 
-interface ActionsProps {
+interface IActions {
     readed(messageId: string): Promise<void>;
     removed(messageId: string): Promise<void>;
     removedAll(): void;
     updated(): Promise<void>;
 }
 
-interface PushNotificationContextProps {
-    statePushNotification: PushNotificationProps;
-    actions?: ActionsProps | null;
+interface IPushNotificationContext {
+    statePushNotification: IPushNotification;
+    actions?: IActions | null;
 }
 
-const PushNotificationContext = createContext<PushNotificationContextProps>({
+const PushNotificationContext = createContext<IPushNotificationContext>({
     statePushNotification: initialState,
     actions: null
 });
@@ -40,7 +40,7 @@ export function PushNotificationProvider({ children }: PropsWithChildren<any>): 
                     const notificationStorage = await getStorageJson(storageNotificationName);
 
                     if (Array.isArray(notificationStorage?.data)) {
-                        const { data: dataPushNotification } = notificationStorage as PushNotificationProps;
+                        const { data: dataPushNotification } = notificationStorage as IPushNotification;
 
                         // Remove as notificações que tem mais de 1 ano
                         const newDataPushNotification = dataPushNotification?.filter((item) => dayjs().diff(dayjs(item.date), 'year') === 0);
@@ -58,7 +58,7 @@ export function PushNotificationProvider({ children }: PropsWithChildren<any>): 
                     const notificationStorage = await getStorageJson(storageNotificationName);
 
                     if (Array.isArray(notificationStorage?.data)) {
-                        const { data: dataPushNotification } = notificationStorage as PushNotificationProps;
+                        const { data: dataPushNotification } = notificationStorage as IPushNotification;
 
                         // Procura pelo índice da notificação
                         const index = dataPushNotification?.findIndex((item) => item?.messageId === messageId) || 0;
@@ -86,7 +86,7 @@ export function PushNotificationProvider({ children }: PropsWithChildren<any>): 
                     const notificationStorage = await getStorageJson(storageNotificationName);
 
                     if (Array.isArray(notificationStorage?.data)) {
-                        const { data: dataPushNotification } = notificationStorage as PushNotificationProps;
+                        const { data: dataPushNotification } = notificationStorage as IPushNotification;
 
                         const newDataPushNotification = dataPushNotification?.filter((item) => item.messageId !== messageId);
 
@@ -117,7 +117,7 @@ export function PushNotificationProvider({ children }: PropsWithChildren<any>): 
                     const notificationStorage = await getStorageJson(storageNotificationName);
 
                     if (Array.isArray(notificationStorage?.data)) {
-                        const { data: dataPushNotification } = notificationStorage as PushNotificationProps;
+                        const { data: dataPushNotification } = notificationStorage as IPushNotification;
 
                         dispatch({ payload: dataPushNotification, type: ActionType.UPDATED });
                     } else {
@@ -323,7 +323,7 @@ export function PushNotificationProvider({ children }: PropsWithChildren<any>): 
     );
 }
 
-export function usePushNotification(): PushNotificationContextProps {
+export function usePushNotification(): IPushNotificationContext {
     const context = useContext(PushNotificationContext);
 
     if (context === undefined) {

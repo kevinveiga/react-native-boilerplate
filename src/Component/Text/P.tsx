@@ -5,7 +5,7 @@ import { Text } from 'react-native-elements';
 
 import { variable } from '../../Style/variable';
 
-interface PProps {
+interface IP {
     bold?: boolean;
     children?: number | string;
     color?: ColorValue;
@@ -14,7 +14,7 @@ interface PProps {
     textDecorationLine?: 'none' | 'underline' | 'line-through' | 'underline line-through';
 }
 
-export function P({ bold = false, children, color, fontSize, textAlign, textDecorationLine }: PProps): ReactElement {
+export function P({ bold = false, children, color, fontSize, textAlign, textDecorationLine }: IP): ReactElement {
     const styleObj: { [key: string]: any } = {
         color: color,
         fontFamily: bold ? variable.fontPrimaryBold : variable.fontPrimaryRegular,

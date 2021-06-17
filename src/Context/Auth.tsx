@@ -3,22 +3,22 @@ import React, { createContext, PropsWithChildren, ReactElement, useContext, useE
 import { storageAuthName } from '../Config';
 import { responseError } from '../Helper/ResponseError';
 import { api } from '../Service/Api';
-import { login, LoginProps } from '../Service/Auth';
+import { login, ILogin } from '../Service/Auth';
 import { clearStorage, getStorageJson, setStorage } from '../Service/Storage';
 import { ActionType } from '../Store/Action/ActionType';
-import { AuthProps, authReducer, initialState } from '../Store/Reducer/Auth';
+import { IAuth, authReducer, initialState } from '../Store/Reducer/Auth';
 
-interface ActionsProps {
-    login(obj: LoginProps): Promise<void>;
+interface IActions {
+    login(obj: ILogin): Promise<void>;
     logout(): Promise<void>;
 }
 
-interface AuthContextProps {
-    stateAuth: AuthProps;
-    actions?: ActionsProps | null;
+interface IAuthContext {
+    stateAuth: IAuth;
+    actions?: IActions | null;
 }
 
-const AuthContext = createContext<AuthContextProps>({
+const AuthContext = createContext<IAuthContext>({
     stateAuth: initialState,
     actions: null
 });
@@ -62,7 +62,7 @@ export function AuthProvider({ children }: PropsWithChildren<any>): ReactElement
 
     // ACTION
     const actions = {
-        login: async (obj: LoginProps): Promise<void> => {
+        login: async (obj: ILogin): Promise<void> => {
             try {
                 dispatch({
                     type: ActionType.ATTEMPTING
@@ -109,7 +109,7 @@ export function AuthProvider({ children }: PropsWithChildren<any>): ReactElement
     return <AuthContext.Provider value={{ stateAuth: stateAuth, actions: actions }}>{children}</AuthContext.Provider>;
 }
 
-export function useAuth(): AuthContextProps {
+export function useAuth(): IAuthContext {
     const context = useContext(AuthContext);
 
     if (context === undefined) {

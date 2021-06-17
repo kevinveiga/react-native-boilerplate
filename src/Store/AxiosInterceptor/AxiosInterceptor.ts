@@ -7,12 +7,12 @@ import { sleep } from '../../Helper/Sleep';
 
 import { variable } from '../../Style/variable';
 
-interface UseAxiosInterceptorProps {
+interface IUseAxiosInterceptor {
     stateLoader: boolean;
     setStateLoader: Dispatch<SetStateAction<boolean>>;
 }
 
-export function useAxiosInterceptor(): UseAxiosInterceptorProps {
+export function useAxiosInterceptor(): IUseAxiosInterceptor {
     const [stateLoader, setStateLoader] = useState<boolean>(false);
 
     // Mostrar loader no request, ocultar loader no response

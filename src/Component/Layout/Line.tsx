@@ -3,13 +3,13 @@ import { ColorValue, StyleSheet, View } from 'react-native';
 
 import { variable } from '../../Style/variable';
 
-interface LineProps {
+interface ILine {
     bgColor?: ColorValue;
     height?: number | string;
     width?: number | string;
 }
 
-export function HorizontalLine({ bgColor = variable.colorGrayLight, height = 1, width = '100%' }: LineProps): ReactElement {
+export function HorizontalLine({ bgColor = variable.colorGrayLight, height = 1, width = '100%' }: ILine): ReactElement {
     const styles = StyleSheet.create({
         size: {
             backgroundColor: bgColor,
@@ -21,7 +21,7 @@ export function HorizontalLine({ bgColor = variable.colorGrayLight, height = 1, 
     return <View style={styles.size} />;
 }
 
-export function VerticalLine({ bgColor = variable.colorGrayLight, height = '100%', width = 1 }: LineProps): ReactElement {
+export function VerticalLine({ bgColor = variable.colorGrayLight, height = '100%', width = 1 }: ILine): ReactElement {
     const styles = StyleSheet.create({
         size: {
             backgroundColor: bgColor,

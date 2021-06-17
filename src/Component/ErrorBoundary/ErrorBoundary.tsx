@@ -2,16 +2,16 @@ import React, { Component, ErrorInfo, PropsWithChildren, ReactNode } from 'react
 
 import { Text } from 'react-native-elements';
 
-interface Props {
+interface IProps {
     children: ReactNode;
 }
 
-interface State {
+interface IState {
     hasError: boolean;
 }
 
-export class ErrorBoundary extends Component<Props, State> {
-    static getDerivedStateFromError(): State {
+export class ErrorBoundary extends Component<IProps, IState> {
+    static getDerivedStateFromError(): IState {
         // Update state so the next render will show the fallback UI.
         return { hasError: true };
     }

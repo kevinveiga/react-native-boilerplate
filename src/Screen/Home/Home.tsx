@@ -8,7 +8,7 @@ import { Button } from 'react-native-elements';
 import Yup from '../../Helper/Yup';
 
 import { useAuth } from '../../Context/Auth';
-import { RouteParams } from '../../Entity/RouteParams';
+import { IRouteParams } from '../../Entity/RouteParams';
 import { ActionType } from '../../Store/Action/ActionType';
 
 import { InputEmail, InputPassword } from '../../Component/Form/Form';
@@ -27,14 +27,14 @@ import ImageHomeTop from '../../Asset/Image/home-top.png';
 import SvgKey from '../../Asset/Svg/svg-key.svg';
 import SvgUser from '../../Asset/Svg/svg-user.svg';
 
-interface FormLoginProps {
+interface IFormLogin {
     email: string;
     password: string;
 }
 
 export default function Home(): ReactElement {
     // VARIABLE
-    const initialData: FormLoginProps = {
+    const initialData: IFormLogin = {
         email: '',
         password: ''
     };
@@ -56,7 +56,7 @@ export default function Home(): ReactElement {
 
     // STATE
     const { error, status } = stateAuth;
-    const { routeParams, routeToRedirect } = (route.params as RouteParams) || {};
+    const { routeParams, routeToRedirect } = (route.params as IRouteParams) || {};
 
     useEffect(() => {
         if (error) {
@@ -77,7 +77,7 @@ export default function Home(): ReactElement {
     // FORM
     const formRef = useRef<FormHandles>(null);
 
-    const handleSubmit: SubmitHandler<FormLoginProps> = async (data) => {
+    const handleSubmit: SubmitHandler<IFormLogin> = async (data) => {
         try {
             const schema = Yup.object().shape({
                 email: Yup.string().email().required(),

@@ -1,5 +1,5 @@
 /* eslint-disable camelcase */
-export interface UserProps {
+export interface IUser {
     codigo_xp: number;
     data_nascimento: string;
     email: string;
