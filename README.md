@@ -94,18 +94,23 @@ cd $PWD
 
 ### **ANDROID**
 
+#### SHA1
+
+-   Para pegar a chave SHA1, digite no terminal:
+    keytool -list -v -alias androiddebugkey -keystore android/app/debug.keystore
+
 #### EMULADOR
 
 -   Melhor opção para emulador é utilizando um aparelho, seguir este link [https://react-native.rocketseat.dev/usb/android](https://react-native.rocketseat.dev/usb/android)
 
-#### COMANDOS
+#### COMANDOS DE DESENVOLVIMENTO OU PUBLICAÇÃO
 
--   Executar no terminal apenas na primeira vez ou sempre que atualizar o package.json:
+##### Primeira execução ou sempre que atualizar o package.json
+
+-   Executar no terminal:
     yarn install
 
-##### Ambiente de desenvolvimento por USB
-
-###### Com o aparelho conectado e autorizado
+##### Ambiente de desenvolvimento por USB (com o aparelho conectado e autorizado)
 
 -   Executar server em um terminal:
     yarn run start --reset-cache
@@ -133,14 +138,14 @@ cd $PWD
 
     yarn run publish:dev bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle
 
--   Versão Debug do APK, executar no terminal o comando:
+-   Versão Debug do APK, executar no terminal:
     cd android && ./gradlew clean assembleDebug && cd ..
 
     \*Obs: os arquivos de APK se encontram na pasta android/app/build/outputs/apk/debug,
     cada arquivo é para um range de versões do Android, no Moto G7, por exemplo, funcionou o arquivo
     app-armeabi-v7a-debug
 
--   Versão Release do APK, executar no terminal o comando:
+-   Versão Release do APK, executar no terminal:
     cd android && ./gradlew clean assembleRelease && cd ..
 
     \*Obs: os arquivos de APK se encontram na pasta android/app/build/outputs/apk/release,
@@ -167,6 +172,8 @@ cd $PWD
 #### REFERÊNCIAS
 
 -   [https://developer.android.com/](https://developer.android.com/)
+
+-   [Publicar no Google Play](https://reactnative.dev/docs/signed-apk-android)
 
 ### **IOS**
 
