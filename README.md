@@ -400,6 +400,12 @@ stateNotifications.length > 0;
 
 -   [Unform - Vídeo](https://www.youtube.com/watch?v=P65RJTTqkN4&ab_channel=Rocketseat)
 
+#### **LOGINS**
+
+-   [Login do Google](https://rnfirebase.io/auth/social-auth)
+
+-   [Login do Facebook](https://www.youtube.com/watch?v=pDLo7Pfcvfk&ab_channel=PradipDebnath)
+
 #### **NAVIGATION**
 
 -   [React Navigation](https://reactnavigation.org/)
