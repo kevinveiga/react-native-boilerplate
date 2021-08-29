@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useNavigation, useRoute } from '@react-navigation/native';
 
 import { useAuth } from '../../contexts/auth';
-import { ActionType } from '../../Store/Action/ActionType';
+import { ActionType } from '../../stores/action/actionType';
 
 export const useVerifyAuthentication = (): void => {
     // CONTEXT

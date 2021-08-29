@@ -5,7 +5,7 @@ import dayjs from 'dayjs';
 
 import { usePushNotification } from '../../contexts/pushNotification';
 import { alertCancelOk } from '../../helpers/alertCancelOk';
-import { notificationRedirect } from '../../Store/PushNotification/NotificationRedirect';
+import { notificationRedirect } from '../../stores/pushNotification/notificationRedirect';
 
 import { Spacer } from '../../components/layout/spacer';
 import { P } from '../../components/text/p';
@@ -57,8 +57,8 @@ export default function Notificacoes(): ReactElement {
                 <View style={styles.notificacoesList}>
                     <FlatList
                         data={dataPushNotification}
-                        keyExtractor={(item): string => item.messageId}
-                        renderItem={({ item, index }): ReactElement => {
+                        keyExtractor={(item: any): string => item.messageId}
+                        renderItem={({ item, index }: any): ReactElement => {
                             const bgColor = index % 2 ? list.backgroundEven : list.backgroundOdd;
                             const notReadedColor = JSON.parse(item.notReaded.toString()) ? variable.fontColor : variable.colorGray2;
 

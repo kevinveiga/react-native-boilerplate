@@ -7,7 +7,7 @@ import { DrawerActions } from '@react-navigation/native';
 import { useAuth } from '../contexts/auth';
 import { usePushNotification } from '../contexts/pushNotification';
 import { routes, IRoutes } from './routes';
-import { ActionType } from '../Store/Action/ActionType';
+import { ActionType } from '../stores/action/actionType';
 
 import { ErrorBoundary } from '../components/errorBoundary/errorBoundary';
 import { Span } from '../components/text/span';

@@ -7,7 +7,7 @@ interface IPushNotificationAction {
     type: ActionType;
 }
 
-interface IPushNotification {
+export interface IPushNotification {
     data?: IMessage[] | null;
 }
 

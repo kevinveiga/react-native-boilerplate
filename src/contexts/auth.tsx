@@ -5,8 +5,8 @@ import { responseError } from '../helpers/responseError';
 import { api } from '../services/api';
 import { login, ILogin } from '../services/auth';
 import { clearStorage, getStorageJson, setStorage } from '../services/storage';
-import { ActionType } from '../Store/Action/ActionType';
-import { IAuth, authReducer, initialState } from '../Store/Reducer/Auth';
+import { ActionType } from '../stores/action/actionType';
+import { IAuth, authReducer, initialState } from '../stores/reducer/auth';
 
 interface IActions {
     login(obj: ILogin): Promise<void>;

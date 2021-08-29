@@ -9,7 +9,7 @@ import Yup from '../../helpers/yup';
 
 import { useAuth } from '../../contexts/auth';
 import { IRouteParams } from '../../entities/routeParams';
-import { ActionType } from '../../Store/Action/ActionType';
+import { ActionType } from '../../stores/action/actionType';
 
 import { InputEmail, InputPassword } from '../../components/form/form';
 import { ImageBg } from '../../components/image/imageBg';
@@ -77,7 +77,7 @@ export default function Home(): ReactElement {
     // FORM
     const formRef = useRef<FormHandles>(null);
 
-    const handleSubmit: SubmitHandler<IFormLogin> = async (data) => {
+    const handleSubmit: SubmitHandler<IFormLogin> = async (data: any) => {
         try {
             const schema = Yup.object().shape({
                 email: Yup.string().email().required(),

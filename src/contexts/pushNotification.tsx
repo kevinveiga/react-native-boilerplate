@@ -6,10 +6,10 @@ import dayjs from 'dayjs';
 
 import { storageNotificationName } from '../config';
 import { getStorageJson, removeStorage, setStorage } from '../services/storage';
-import { ActionType } from '../Store/Action/ActionType';
-import { addNotificationToStorage } from '../Store/PushNotification/AddNotificationToStorage';
-import { notificationRedirect } from '../Store/PushNotification/NotificationRedirect';
-import { IPushNotification, pushNotificationReducer, initialState } from '../Store/Reducer/PushNotification';
+import { ActionType } from '../stores/action/actionType';
+import { addNotificationToStorage } from '../stores/pushNotification/addNotificationToStorage';
+import { notificationRedirect } from '../stores/pushNotification/notificationRedirect';
+import { IPushNotification, pushNotificationReducer, initialState } from '../stores/reducer/pushNotification';
 
 interface IActions {
     readed(messageId: string): Promise<void>;

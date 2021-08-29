@@ -1,6 +1,6 @@
 import React, { createContext, Dispatch, PropsWithChildren, ReactElement, SetStateAction, useContext } from 'react';
 import { ActivityIndicator, View } from 'react-native';
-import { useAxiosInterceptor } from '../Store/AxiosInterceptor/AxiosInterceptor';
+import { useAxiosInterceptor } from '../stores/axiosInterceptor/axiosInterceptor';
 
 import { layout } from '../styles/layout';
 import { variable } from '../styles/variable';
