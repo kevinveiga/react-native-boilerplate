@@ -88,6 +88,8 @@ Pastas dentro de src:
 
 -   Aumentar o limite de arquivos observados no sistema [https://stackoverflow.com/questions/55763428/react-native-error-enospc-system-limit-for-number-of-file-watchers-reached](https://stackoverflow.com/questions/55763428/react-native-error-enospc-system-limit-for-number-of-file-watchers-reached)
 
+-   Configurar o MultiDex [https://developer.android.com/studio/build/multidex?hl=pt-br](https://developer.android.com/studio/build/multidex?hl=pt-br)
+
 -   Incluir no arquivo $HOME/.bashrc as linhas de código:
 
 ```
