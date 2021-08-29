@@ -17,10 +17,10 @@ import MinhaContaClientesLiberta from '../screens/minhaConta/minhaContaClientesL
 import { header } from '../styles/header';
 import { variable } from '../styles/variable';
 
-import SvgClose from '../Asset/Svg/svg-close.svg';
-import SvgLogo from '../Asset/Svg/svg-logo.svg';
-import SvgMenu from '../Asset/Svg/svg-menu.svg';
-import SvgMessage from '../Asset/Svg/svg-message.svg';
+import SvgClose from '../assets/svg/svg-close.svg';
+import SvgLogo from '../assets/svg/svg-logo.svg';
+import SvgMenu from '../assets/svg/svg-menu.svg';
+import SvgMessage from '../assets/svg/svg-message.svg';
 
 const Drawer = createDrawerNavigator();
 

@@ -1,7 +1,7 @@
 import React, { PropsWithChildren, ReactElement } from 'react';
 import { View } from 'react-native';
 
-import { useVerifyAuthentication } from '../../Store/Auth/VerifyAuthentication';
+import { useVerifyAuthentication } from '../../stores/auth/verifyAuthentication';
 
 import FooterDefault from './footerDefault';
 

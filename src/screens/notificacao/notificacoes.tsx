@@ -15,7 +15,7 @@ import { layout } from '../../styles/layout';
 import { list } from '../../styles/list';
 import { variable } from '../../styles/variable';
 
-import SvgTrash from '../../Asset/Svg/svg-trash.svg';
+import SvgTrash from '../../assets/svg/svg-trash.svg';
 
 export default function Notificacoes(): ReactElement {
     // STYLE

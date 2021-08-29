@@ -5,7 +5,7 @@ import messaging from '@react-native-firebase/messaging';
 
 import { appName } from './app.json';
 import { App } from './src/app';
-import { addNotificationToStorage } from './src/Store/PushNotification/AddNotificationToStorage';
+import { addNotificationToStorage } from './src/stores/pushNotification/addNotificationToStorage';
 
 // Push Notification com o app em plano de fundo ou fechado
 messaging().setBackgroundMessageHandler(async (remoteMessage) => {

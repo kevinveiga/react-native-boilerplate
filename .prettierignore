@@ -18,10 +18,6 @@
 .env*
 !.env.example
 
-# Generated
-/public/asset
-/src/Assets
-
 # IDE and Editors
 /.vscode
 /nbproject
@@ -56,8 +52,9 @@ yarn-debug.log*
 yarn-error.log*
 yarn.lock*
 
-# Sources
-/src/asset
+# Sources & Generated
+/public/assets
+/src/assets
 
 # Test
 /coverage
