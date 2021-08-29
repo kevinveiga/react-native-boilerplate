@@ -86,6 +86,8 @@ Pastas dentro de src:
 
 -   Instalação de NodeJS, Yarn e Android Studio de acordo com esse link [https://react-native.rocketseat.dev/android/linux](https://react-native.rocketseat.dev/android/linux)
 
+-   Aumentar o limite de arquivos observados no sistema [https://stackoverflow.com/questions/55763428/react-native-error-enospc-system-limit-for-number-of-file-watchers-reached](https://stackoverflow.com/questions/55763428/react-native-error-enospc-system-limit-for-number-of-file-watchers-reached)
+
 -   Incluir no arquivo $HOME/.bashrc as linhas de código:
 
 ```
