@@ -167,7 +167,15 @@ cd $PWD
 
 -   Melhor opção para emulador é utilizando um aparelho, seguir este link [https://react-native.rocketseat.dev/usb/android](https://react-native.rocketseat.dev/usb/android)
 
-#### **CONFIGURAÇÕES DO AMBIENTE**
+### **IOS**
+
+<!-- TODO -->
+
+#### **EMULADOR**
+
+Melhor opção para emulador é utilizando um aparelho, seguir este link [https://react-native.rocketseat.dev/usb/ios](https://react-native.rocketseat.dev/usb/ios)
+
+### **CONFIGURAÇÕES DO AMBIENTE**
 
 ##### Primeira execução ou sempre que atualizar o package.json
 
@@ -191,7 +199,7 @@ cd $PWD
     ou a versão de produção
     yarn ios --variant=release
 
-##### Gerar arquivo APK
+##### Android: Gerar arquivo APK
 
 -   MUITO CUIDADO ao fazer qualquer alteração dentro de "android", pode estar funcionando no emulador, mas não funcionar no APK
 
@@ -218,58 +226,31 @@ cd $PWD
 
 -   [Como instalar aplicativo APK no Android](https://www.tekimobile.com/dicas/como-instalar-aplicativos-apk-no-seu-android-manualmente/)
 
-#### **PROBLEMAS**
-
--   Caso as alterações não estejam aparecendo na tela, no terminal digite R para atualizar o emulador
-
--   Erro ao executar algum comando ou tela do app não abre no celular
-
-    -   Executar no terminal:
-        cd android && ./gradlew clean && cd ..
-    -   E depois:
-        yarn start --reset-cache
-
--   Problema de commit no Rusky com a mensagem de versão do NodeJS, reinicie o VS Code
-
--   [Problemas com React Native Reanimated](https://docs.swmansion.com/react-native-reanimated/docs/installation/)
-
 #### **REFERÊNCIAS**
 
 -   [https://developer.android.com/](https://developer.android.com/)
 
 -   [Publicar no Google Play](https://reactnative.dev/docs/signed-apk-android)
 
-### **IOS**
+### **PROBLEMAS QUE PODEM OCORRER**
 
-<!-- TODO -->
+-   Se for alterado o valor de "appName" no arquivo app.json, para de funcionar o app, sempre que for necessário alterar esse valor, se deve mudar também em vários arquivos do Android e do IOS, uma alternativa é criar outro projeto e executar o comando:
+    yarn react-native init novo_nome --template react-native-template-typescript
 
-#### **EMULADOR**
+-   Caso as alterações não estejam aparecendo na tela, no terminal digite R para atualizar o emulador
 
-Melhor opção para emulador é utilizando um aparelho, seguir este link [https://react-native.rocketseat.dev/usb/ios](https://react-native.rocketseat.dev/usb/ios)
-
-<!-- TODO -->
-
-##### Ambiente de desenvolvimento
-
-<!-- TODO -->
-
-###### Com o aparelho conectado e autorizado
-
-<!-- TODO -->
-
-##### Ambiente de produção
-
-<!-- TODO -->
-
-#### **CONFIGURAÇÕES DO AMBIENTE**
-
-<!-- TODO -->
-
-#### **PROBLEMAS**
-
-<!-- TODO -->
+-   Problema de commit no Rusky com a mensagem de versão do NodeJS, reinicie o VS Code
 
 -   [Problemas com React Native Reanimated](https://docs.swmansion.com/react-native-reanimated/docs/installation/)
+
+#### **Android**
+
+-   Erro ao executar algum comando ou se a tela do app não abre no celular
+
+    -   Executar no terminal:
+        cd android && ./gradlew clean && cd ..
+    -   E depois:
+        yarn start --reset-cache
 
 ### **JAVASCRIPT**
 
