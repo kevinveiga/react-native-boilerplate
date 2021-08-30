@@ -97,7 +97,12 @@ apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
  * Upload all the APKs to the Play Store and people will download
  * the correct one based on the CPU architecture of their device.
  */
-def enableSeparateBuildPerCPUArchitecture = true
+def enableSeparateBuildPerCPUArchitecture = false
+
+/**
+ * Run Proguard to shrink the Java bytecode in release builds.
+ */
+def enableProguardInReleaseBuilds = false
 
 /**
  * The preferred build flavor of JavaScriptCore.
@@ -122,16 +127,14 @@ def jscFlavor = "org.webkit:android-jsc:+"
 def enableHermes = project.ext.react.get("enableHermes", false);
 
 android {
+    ndkVersion rootProject.ext.ndkVersion
+
     compileSdkVersion rootProject.ext.compileSdkVersion
 
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-
     defaultConfig {
-        applicationId "com.liberta.libertaeducacaoapp"
+        applicationId "com.app.app"
         minSdkVersion rootProject.ext.minSdkVersion
+        multiDexEnabled true
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
@@ -174,11 +177,12 @@ android {
         variant.outputs.each { output ->
             // For each separate APK per architecture, set a unique version code as described here:
             // https://developer.android.com/studio/build/configure-apk-splits.html
+            // Example: versionCode 1 will generate 1001 for armeabi-v7a, 1002 for x86, etc.
             def versionCodes = ["armeabi-v7a": 1, "x86": 2, "arm64-v8a": 3, "x86_64": 4]
             def abi = output.getFilter(OutputFile.ABI)
             if (abi != null) {  // null for the universal-debug, universal-release variants
                 output.versionCodeOverride =
-                        versionCodes.get(abi) * 1048576 + defaultConfig.versionCode
+                        defaultConfig.versionCode * 1000 + versionCodes.get(abi)
             }
 
         }
@@ -186,19 +190,23 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: "libs", include: ["*.jar"])
     //noinspection GradleDynamicVersion
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+
+    implementation "com.facebook.android:facebook-android-sdk:[5,6)"
+
     implementation "com.facebook.react:react-native:+"  // From node_modules
+
+    implementation "androidx.multidex:multidex:2.0.1"
 
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
 
     // Firebase
     // Sobre Firebase-BoM: https://firebase.google.com/docs/android/learn-more?authuser=0#bom
-    implementation platform("com.google.firebase:firebase-bom:27.1.0")
+    implementation platform("com.google.firebase:firebase-bom:28.4.0")
 
     // When using the BoM, you don"t specify versions in Firebase library
     implementation "com.google.firebase:firebase-analytics"
-    // Firebase
 
     debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}") {
       exclude group:"com.facebook.fbjni"

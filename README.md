@@ -432,7 +432,7 @@ stateNotifications.length > 0;
         Obs: NÃO ESQUECER da configuração do "android", necessário para funcionar corretamente "messaging().setBackgroundMessageHandler"
 
         parent:
-        projects/libertaeducacaoapp
+        projects/app
 
         Request body:
         ```json

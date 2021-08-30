@@ -9,7 +9,7 @@
             "client_info": {
                 "mobilesdk_app_id": "1:119044399148:android:e935d0aabea683bedd3189",
                 "android_client_info": {
-                    "package_name": "com.liberta.libertaeducacaoapp"
+                    "package_name": "com.app.app"
                 }
             },
             "oauth_client": [
@@ -17,7 +17,7 @@
                     "client_id": "119044399148-dso3taau7ud0k1q20bnvh9rbgljr04f3.apps.googleusercontent.com",
                     "client_type": 1,
                     "android_info": {
-                        "package_name": "com.liberta.libertaeducacaoapp",
+                        "package_name": "com.app.app",
                         "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
                     }
                 },

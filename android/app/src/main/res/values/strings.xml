@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">com.liberta.libertaeducacaoapp/Liberta Educação App</string>
+    <string name="app_name">com.app.app/App</string>
+    <string name="facebook_app_id">facebook app id</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.liberta.libertaeducacaoapp;
+package com.app.app;
 
 import com.facebook.react.ReactActivity;
 
