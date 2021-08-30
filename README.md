@@ -177,19 +177,19 @@ cd $PWD
 ##### Ambiente de desenvolvimento por USB (com o aparelho conectado e autorizado)
 
 -   Executar server em um terminal:
-    yarn run start --reset-cache
+    yarn start --reset-cache
     ou para usar o ENV de produção:
-    yarn run start:prod --reset-cache
+    yarn start:prod --reset-cache
 
 -   Executar emulador Android em outro terminal:
-    yarn run android
+    yarn android
     ou a versão de produção
-    yarn run android --variant=release
+    yarn android --variant=release
 
 -   Executar emulador IOS em outro terminal:
-    yarn run ios
+    yarn ios
     ou a versão de produção
-    yarn run ios --variant=release
+    yarn ios --variant=release
 
 ##### Gerar arquivo APK
 
@@ -227,7 +227,7 @@ cd $PWD
     -   Executar no terminal:
         cd android && ./gradlew clean && cd ..
     -   E depois:
-        yarn run start --reset-cache
+        yarn start --reset-cache
 
 -   Problema de commit no Rusky com a mensagem de versão do NodeJS, reinicie o VS Code
 
