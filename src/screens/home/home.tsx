@@ -14,9 +14,9 @@ import { ActionType } from '../../stores/action/actionType';
 import { InputEmail, InputPassword } from '../../components/form/form';
 import { ImageBg } from '../../components/image/imageBg';
 import { Spacer } from '../../components/layout/spacer';
-import { P } from '../../components/text/p';
-import { Span } from '../../components/text/span';
-import { Title2, Title4 } from '../../components/text/title';
+import { P } from '../../components/text/text';
+import { Span } from '../../components/text/text';
+import { Title2, Title4 } from '../../components/text/text';
 
 import { button } from '../../styles/button';
 import { inputSecondary } from '../../styles/form';

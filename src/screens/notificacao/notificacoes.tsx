@@ -8,8 +8,8 @@ import { alertCancelOk } from '../../helpers/alertCancelOk';
 import { notificationRedirect } from '../../stores/pushNotification/notificationRedirect';
 
 import { Spacer } from '../../components/layout/spacer';
-import { P } from '../../components/text/p';
-import { Title2, Title4 } from '../../components/text/title';
+import { P } from '../../components/text/text';
+import { Title2, Title4 } from '../../components/text/text';
 
 import { layout } from '../../styles/layout';
 import { list } from '../../styles/list';

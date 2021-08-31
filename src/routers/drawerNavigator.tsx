@@ -10,7 +10,7 @@ import { routes, IRoutes } from './routes';
 import { ActionType } from '../stores/action/actionType';
 
 import { ErrorBoundary } from '../components/errorBoundary/errorBoundary';
-import { Span } from '../components/text/span';
+import { Span } from '../components/text/text';
 
 import MinhaContaClientesLiberta from '../screens/minhaConta/minhaContaClientesLiberta';
 

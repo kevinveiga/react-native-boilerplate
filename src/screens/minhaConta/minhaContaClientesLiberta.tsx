@@ -4,8 +4,8 @@ import { ScrollView, View } from 'react-native';
 import { Card } from 'react-native-elements';
 
 import { Spacer } from '../../components/layout/spacer';
-import { P } from '../../components/text/p';
-import { Title2, Title3 } from '../../components/text/title';
+import { P } from '../../components/text/text';
+import { Title2, Title3 } from '../../components/text/text';
 
 import { layout } from '../../styles/layout';
 import { variable } from '../../styles/variable';
