@@ -133,6 +133,12 @@ export default function DrawerNavigator(): ReactElement {
 
     // STYLE
     const styles = StyleSheet.create({
+        drawerNavigatorLeft: {
+            paddingLeft: variable.padding
+        },
+        drawerNavigatorRight: {
+            paddingRight: variable.padding
+        },
         logoWrapper: {
             alignItems: 'center',
             height: '100%',
@@ -181,7 +187,10 @@ export default function DrawerNavigator(): ReactElement {
                             },
                             headerLeft: (): ReactElement => {
                                 return (
-                                    <TouchableOpacity onPress={(): any => navigation.dispatch(DrawerActions.toggleDrawer())}>
+                                    <TouchableOpacity
+                                        onPress={(): any => navigation.dispatch(DrawerActions.toggleDrawer())}
+                                        style={styles.drawerNavigatorLeft}
+                                    >
                                         <SvgMenu height="25px" width="25px" fill={variable.colorSecondary} />
                                     </TouchableOpacity>
                                 );
@@ -190,7 +199,7 @@ export default function DrawerNavigator(): ReactElement {
                                 const messagesNotReaded = dataPushNotification.filter((item) => item.notReaded);
 
                                 return (
-                                    <TouchableOpacity onPress={(): any => navigation.navigate('Notificações')}>
+                                    <TouchableOpacity onPress={(): any => navigation.navigate('Notificações')} style={styles.drawerNavigatorRight}>
                                         <SvgMessage height="25px" width="25px" fill={variable.colorSecondary} />
 
                                         {messagesNotReaded.length > 0 && (
