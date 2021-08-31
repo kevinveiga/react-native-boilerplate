@@ -1,5 +1,5 @@
 import React, { ReactElement, useEffect, useRef } from 'react';
-import { Alert, ScrollView, StyleSheet, View } from 'react-native';
+import { Alert, ScrollView, View } from 'react-native';
 
 import { CommonActions, useNavigation, useRoute } from '@react-navigation/native';
 import { SubmitHandler, FormHandles } from '@unform/core';
@@ -38,16 +38,6 @@ function Home(): ReactElement {
         email: '',
         password: ''
     };
-
-    // STYLE
-    const styles = StyleSheet.create({
-        homeTop: {
-            width: '100%'
-        },
-        login: {
-            width: '100%'
-        }
-    });
 
     // CONTEXT
     const { stateAuth, actions } = useAuth();
@@ -108,7 +98,7 @@ function Home(): ReactElement {
 
     return (
         <ImageBg source={ImageHomeTop}>
-            <View style={{ ...layout.container, ...styles.homeTop }}>
+            <View style={{ ...layout.container }}>
                 <ScrollView>
                     <Spacer height={25} />
 
@@ -134,7 +124,7 @@ function Home(): ReactElement {
 
                     <Spacer height={20} />
 
-                    <View style={styles.login}>
+                    <View>
                         <Form initialData={initialData} onSubmit={handleSubmit} ref={formRef}>
                             <View>
                                 <View>
