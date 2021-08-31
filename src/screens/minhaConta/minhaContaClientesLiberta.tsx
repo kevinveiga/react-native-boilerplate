@@ -10,7 +10,7 @@ import { Title2, Title3 } from '../../components/text/title';
 import { layout } from '../../styles/layout';
 import { variable } from '../../styles/variable';
 
-export default function MinhaContaClientesLiberta(): ReactElement {
+function MinhaContaClientesLiberta(): ReactElement {
     return (
         <View style={layout.container}>
             <ScrollView>
@@ -77,3 +77,5 @@ export default function MinhaContaClientesLiberta(): ReactElement {
         </View>
     );
 }
+
+export default MinhaContaClientesLiberta;

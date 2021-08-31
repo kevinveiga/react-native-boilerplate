@@ -10,7 +10,7 @@ import { AppProvider } from './contexts/app';
 import { AuthProvider } from './contexts/auth';
 import { PushNotificationProvider } from './contexts/pushNotification';
 import { navigationRef } from './routers/rootNavigation';
-import StackNavigator from './routers/stackNavigator';
+import { StackNavigator } from './routers/stackNavigator';
 
 import { layout } from './styles/layout';
 import { theme } from './styles/theme';

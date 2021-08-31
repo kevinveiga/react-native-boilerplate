@@ -1,7 +1,7 @@
 import { ComponentProps, ComponentType } from 'react';
 
-import LayoutAdmin from '../components/layout/layoutAdmin';
-import LayoutDefault from '../components/layout/layoutDefault';
+import { LayoutAdmin } from '../components/layout/layoutAdmin';
+import { LayoutDefault } from '../components/layout/layoutDefault';
 
 import Home from '../screens/home/home';
 import Notificacoes from '../screens/notificacao/notificacoes';

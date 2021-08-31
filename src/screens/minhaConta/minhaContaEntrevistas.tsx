@@ -5,10 +5,12 @@ import { Title2 } from '../../components/text/title';
 
 import { layout } from '../../styles/layout';
 
-export default function MinhaContaEntrevistas(): ReactElement {
+function MinhaContaEntrevistas(): ReactElement {
     return (
         <View style={layout.container}>
             <Title2>Entrevistas</Title2>
         </View>
     );
 }
+
+export default MinhaContaEntrevistas;

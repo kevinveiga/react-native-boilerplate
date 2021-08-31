@@ -127,7 +127,7 @@ function MenuDrawerContent({ descriptors, navigation, state, props }: any): Reac
     );
 }
 
-export default function DrawerNavigator(): ReactElement {
+export function DrawerNavigator(): ReactElement {
     // VARIABLE
     const messageNumberWrapSize = 15;
 

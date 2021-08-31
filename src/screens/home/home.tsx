@@ -32,7 +32,7 @@ interface IFormLogin {
     password: string;
 }
 
-export default function Home(): ReactElement {
+function Home(): ReactElement {
     // VARIABLE
     const initialData: IFormLogin = {
         email: '',
@@ -170,3 +170,5 @@ export default function Home(): ReactElement {
         </ImageBg>
     );
 }
+
+export default Home;

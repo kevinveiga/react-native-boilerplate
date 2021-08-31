@@ -17,7 +17,7 @@ import { variable } from '../../styles/variable';
 
 import SvgTrash from '../../assets/svg/svg-trash.svg';
 
-export default function Notificacoes(): ReactElement {
+function Notificacoes(): ReactElement {
     // STYLE
     const styles = StyleSheet.create({
         notificacoesList: {
@@ -110,3 +110,5 @@ export default function Notificacoes(): ReactElement {
         </View>
     );
 }
+
+export default Notificacoes;
