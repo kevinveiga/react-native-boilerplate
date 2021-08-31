@@ -53,6 +53,10 @@ function Home(): ReactElement {
             Alert.alert('Erro:', error, [{ text: 'Fechar' }]);
         }
 
+        return undefined;
+    }, [error]);
+
+    useEffect(() => {
         if (status === ActionType.LOGGED_IN) {
             if (routeToRedirect) {
                 navigation.dispatch(CommonActions.navigate({ name: routeToRedirect, params: routeParams }));
@@ -62,7 +66,7 @@ function Home(): ReactElement {
         }
 
         return undefined;
-    }, [error, navigation, routeParams, routeToRedirect, status]);
+    }, [navigation, routeParams, routeToRedirect, status]);
 
     // FORM
     const formRef = useRef<FormHandles>(null);
