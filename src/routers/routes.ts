@@ -23,6 +23,7 @@ export interface IRoutes {
     layout: ComponentType<ComponentProps<any>> | ComponentType<any>;
     order?: number;
     routeLabel: string;
+    showHeader?: boolean;
     showInMenu?: boolean;
 }
 

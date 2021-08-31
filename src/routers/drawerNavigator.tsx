@@ -171,68 +171,84 @@ export default function DrawerNavigator(): ReactElement {
             initialRouteName={status === ActionType.LOGGED_IN ? 'Cursos' : 'Home'}
             screenOptions={{ ...header, headerTitleAlign: 'center' }}
         >
-            {routes.map(({ authRequired = true, component: Component, hasClienteLiberta = false, layout: Layout, routeLabel }: IRoutes) => {
-                return (
-                    <Drawer.Screen
-                        key={routeLabel}
-                        name={routeLabel}
-                        options={({ navigation }): DrawerNavigationOptions => ({
-                            drawerLabel: routeLabel,
-                            headerTitle: (): ReactElement => {
-                                return (
-                                    <View style={styles.logoWrapper}>
-                                        <SvgLogo height="100%" width="100%" />
-                                    </View>
-                                );
-                            },
-                            headerLeft: (): ReactElement => {
-                                return (
-                                    <TouchableOpacity
-                                        onPress={(): any => navigation.dispatch(DrawerActions.toggleDrawer())}
-                                        style={styles.drawerNavigatorLeft}
-                                    >
-                                        <SvgMenu height="25px" width="25px" fill={variable.colorSecondary} />
-                                    </TouchableOpacity>
-                                );
-                            },
-                            headerRight: (): ReactElement => {
-                                const messagesNotReaded = dataPushNotification.filter((item) => item.notReaded);
+            {routes.map(
+                ({
+                    authRequired = true,
+                    component: Component,
+                    hasClienteLiberta = false,
+                    layout: Layout,
+                    routeLabel,
+                    showHeader = true
+                }: IRoutes) => {
+                    return (
+                        <Drawer.Screen
+                            key={routeLabel}
+                            name={routeLabel}
+                            options={({ navigation }): DrawerNavigationOptions => ({
+                                drawerLabel: routeLabel,
+                                headerTitle: (): ReactElement => {
+                                    return (
+                                        <View style={styles.logoWrapper}>
+                                            <SvgLogo height="100%" width="100%" />
+                                        </View>
+                                    );
+                                },
+                                headerLeft: (): ReactElement => {
+                                    return (
+                                        <TouchableOpacity
+                                            onPress={(): any => navigation.dispatch(DrawerActions.toggleDrawer())}
+                                            style={styles.drawerNavigatorLeft}
+                                        >
+                                            <SvgMenu height="25px" width="25px" fill={variable.colorSecondary} />
+                                        </TouchableOpacity>
+                                    );
+                                },
+                                headerRight: (): ReactElement => {
+                                    const messagesNotReaded = dataPushNotification.filter((item) => item.notReaded);
 
-                                return (
-                                    <TouchableOpacity onPress={(): any => navigation.navigate('Notificações')} style={styles.drawerNavigatorRight}>
-                                        <SvgMessage height="25px" width="25px" fill={variable.colorSecondary} />
+                                    return (
+                                        <TouchableOpacity
+                                            onPress={(): any => navigation.navigate('Notificações')}
+                                            style={styles.drawerNavigatorRight}
+                                        >
+                                            <SvgMessage height="25px" width="25px" fill={variable.colorSecondary} />
 
-                                        {messagesNotReaded.length > 0 && (
-                                            <View style={styles.messageNumberWarp}>
-                                                <Span color={variable.colorRed} bold={true} fontSize={8}>
-                                                    {messagesNotReaded.length < 10 ? messagesNotReaded.length : '+9'}
-                                                </Span>
-                                            </View>
-                                        )}
-                                    </TouchableOpacity>
-                                );
-                            },
-                            headerShown: true
-                        })}
-                    >
-                        {(): ReactElement => (
-                            <Layout>
-                                <ErrorBoundary>
-                                    {/* Exibe componente que não precisa de autenticação */}
-                                    {!authRequired && <Component />}
+                                            {messagesNotReaded.length > 0 && (
+                                                <View style={styles.messageNumberWarp}>
+                                                    <Span color={variable.colorRed} bold={true} fontSize={8}>
+                                                        {messagesNotReaded.length < 10 ? messagesNotReaded.length : '+9'}
+                                                    </Span>
+                                                </View>
+                                            )}
+                                        </TouchableOpacity>
+                                    );
+                                },
+                                headerShown: showHeader
+                            })}
+                        >
+                            {(): ReactElement => (
+                                <Layout>
+                                    <ErrorBoundary>
+                                        {/* Exibe componente que não precisa de autenticação */}
+                                        {!authRequired && <Component />}
 
-                                    {/* Se estiver logado, verifica se a rota precisa de autenticação e autorização Cliente Liberta,
+                                        {/* Se estiver logado, verifica se a rota precisa de autenticação e autorização Cliente Liberta,
                                         verifica se o usuário tem essa autorização Cliente Liberta (dataAuth?.is_cliente_liberta),
                                         caso não tenha, mostra para informações de Cliente Liberta. */}
-                                    {status === ActionType.LOGGED_IN &&
-                                        authRequired &&
-                                        (hasClienteLiberta && dataAuth?.is_cliente_liberta === false ? <MinhaContaClientesLiberta /> : <Component />)}
-                                </ErrorBoundary>
-                            </Layout>
-                        )}
-                    </Drawer.Screen>
-                );
-            })}
+                                        {status === ActionType.LOGGED_IN &&
+                                            authRequired &&
+                                            (hasClienteLiberta && dataAuth?.is_cliente_liberta === false ? (
+                                                <MinhaContaClientesLiberta />
+                                            ) : (
+                                                <Component />
+                                            ))}
+                                    </ErrorBoundary>
+                                </Layout>
+                            )}
+                        </Drawer.Screen>
+                    );
+                }
+            )}
         </Drawer.Navigator>
     );
 }

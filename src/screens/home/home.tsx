@@ -1,7 +1,7 @@
 import React, { ReactElement, useEffect, useRef } from 'react';
 import { Alert, ScrollView, StyleSheet, View } from 'react-native';
 
-import { useNavigation, useRoute } from '@react-navigation/native';
+import { CommonActions, useNavigation, useRoute } from '@react-navigation/native';
 import { SubmitHandler, FormHandles } from '@unform/core';
 import { Form } from '@unform/mobile';
 import { Button } from 'react-native-elements';
@@ -65,9 +65,9 @@ export default function Home(): ReactElement {
 
         if (status === ActionType.LOGGED_IN) {
             if (routeToRedirect) {
-                navigation.navigate(routeToRedirect, routeParams);
+                navigation.dispatch(CommonActions.navigate({ name: routeToRedirect, params: routeParams }));
             } else {
-                navigation.navigate('Cursos');
+                navigation.dispatch(CommonActions.navigate({ name: 'Home' }));
             }
         }
 
