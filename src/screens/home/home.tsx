@@ -41,16 +41,8 @@ function Home(): ReactElement {
     const route = useRoute();
 
     // STATE
-    const { error, status } = stateAuth;
+    const { status } = stateAuth;
     const { routeParams, routeToRedirect } = (route.params as IRouteParams) || {};
-
-    useEffect(() => {
-        if (error) {
-            Alert.alert('Erro:', error, [{ text: 'Fechar' }]);
-        }
-
-        return undefined;
-    }, [error]);
 
     useEffect(() => {
         if (status === ActionType.LOGGED_IN) {
@@ -79,7 +71,7 @@ function Home(): ReactElement {
                     abortEarly: false
                 })
                 .then(() => {
-                    actions?.login(data);
+                    actions?.login(data).catch((loginError) => Alert.alert('Erro:', loginError, [{ text: 'Fechar' }]));
                 });
 
             formRef.current?.setErrors({});

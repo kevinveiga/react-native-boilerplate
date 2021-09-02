@@ -1,6 +1,6 @@
 import React, { createContext, PropsWithChildren, ReactElement, useContext, useEffect, useReducer } from 'react';
 
-import { storageAuthName } from '../config';
+import { errorMsgDefault, storageAuthName } from '../config';
 import { responseError } from '../helpers/responseError';
 import { api } from '../services/api';
 import { login, ILogin } from '../services/auth';
@@ -82,12 +82,16 @@ export function AuthProvider({ children }: PropsWithChildren<any>): ReactElement
                         error: response.data?.message,
                         type: ActionType.FAILED
                     });
+
+                    throw new Error(errorMsgDefault);
                 }
             } catch (err) {
                 dispatch({
                     error: responseError(err?.response?.data?.errors),
                     type: ActionType.FAILED
                 });
+
+                throw new Error(err.toString());
             }
         },
         logout: async (): Promise<void> => {
@@ -97,11 +101,13 @@ export function AuthProvider({ children }: PropsWithChildren<any>): ReactElement
                         type: ActionType.LOGGED_OUT
                     });
                 })
-                .catch(() => {
+                .catch((err) => {
                     dispatch({
                         error: 'Falha ao fazer o logout',
                         type: ActionType.FAILED
                     });
+
+                    throw new Error(err.toString());
                 });
         }
     };
