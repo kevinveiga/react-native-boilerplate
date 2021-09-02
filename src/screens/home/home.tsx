@@ -5,10 +5,10 @@ import { CommonActions, useNavigation, useRoute } from '@react-navigation/native
 import { SubmitHandler, FormHandles } from '@unform/core';
 import { Form } from '@unform/mobile';
 import { Button } from 'react-native-elements';
-import Yup from '../../helpers/yup';
 
 import { useAuth } from '../../contexts/auth';
 import { IRouteParams } from '../../entities/routeParams';
+import Yup from '../../helpers/yup';
 import { ActionType } from '../../stores/action/actionType';
 
 import { InputEmail, InputPassword } from '../../components/form/form';
