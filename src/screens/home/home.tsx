@@ -9,6 +9,7 @@ import { Button } from 'react-native-elements';
 import { useAuth } from '../../contexts/auth';
 import { IRouteParams } from '../../entities/routeParams';
 import Yup from '../../helpers/yup';
+import { IFormLogin } from '../../interface';
 import { ActionType } from '../../stores/action/actionType';
 
 import { InputEmail, InputPassword } from '../../components/form/form';
@@ -26,11 +27,6 @@ import { variable } from '../../styles/variable';
 import ImageHomeTop from '../../assets/image/home-top.png';
 import SvgKey from '../../assets/svg/svg-key.svg';
 import SvgUser from '../../assets/svg/svg-user.svg';
-
-interface IFormLogin {
-    email: string;
-    password: string;
-}
 
 function Home(): ReactElement {
     // VARIABLE
