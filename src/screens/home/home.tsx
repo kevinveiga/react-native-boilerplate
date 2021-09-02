@@ -71,7 +71,7 @@ function Home(): ReactElement {
                     abortEarly: false
                 })
                 .then(() => {
-                    actions?.login(data).catch((loginError) => Alert.alert('Erro:', loginError, [{ text: 'Fechar' }]));
+                    actions?.login(data).catch((loginError) => Alert.alert('Erro:', loginError.toString(), [{ text: 'Fechar' }]));
                 });
 
             formRef.current?.setErrors({});

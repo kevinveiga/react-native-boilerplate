@@ -91,7 +91,7 @@ export function AuthProvider({ children }: PropsWithChildren<any>): ReactElement
                     type: ActionType.FAILED
                 });
 
-                throw new Error(err.toString());
+                throw new Error(err?.response?.data?.errors);
             }
         },
         logout: async (): Promise<void> => {

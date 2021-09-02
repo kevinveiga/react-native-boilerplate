@@ -115,7 +115,7 @@ function MenuDrawerContent({ descriptors, navigation, state, props }: any): Reac
                                 .then(() => {
                                     navigation.navigate('Home');
                                 })
-                                .catch((logoutError) => Alert.alert('Erro:', logoutError, [{ text: 'Fechar' }]));
+                                .catch((logoutError) => Alert.alert('Erro:', logoutError.toString(), [{ text: 'Fechar' }]));
                         }}
                     />
                 )}
