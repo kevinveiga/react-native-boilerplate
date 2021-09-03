@@ -1,6 +1,7 @@
 export interface IFormLogin {
     email: string;
     password: string;
+    passwordConfirm?: string;
 }
 
 export interface IVariable {

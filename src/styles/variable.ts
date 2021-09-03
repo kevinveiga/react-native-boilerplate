@@ -15,6 +15,7 @@ export const variable: IVariable = {
 
     // Color
     colorBlack: 'rgba(0, 0, 0, 1)',
+    colorBlack2: 'rgba(34, 34, 34, 1)',
     colorBlackTransparent1: 'rgba(0, 0, 0, 0.1)',
     colorBlackTransparent2: 'rgba(0, 0, 0, 0.2)',
     colorBlackTransparent3: 'rgba(0, 0, 0, 0.3)',
@@ -24,7 +25,7 @@ export const variable: IVariable = {
     colorGray: 'rgba(161, 161, 161, 1)',
     colorGray2: 'rgba(115, 123, 128, 1)',
     colorGray3: 'rgba(84, 86, 90, 1)',
-    colorGrayDark: 'rgba(36, 36, 36, 1)',
+    colorGrayDark: 'rgba(38, 38, 38, 1)',
     colorGrayDark2: 'rgba(55, 55, 55, 1)',
     colorGrayLight: 'rgba(210, 210, 210, 1)',
     colorGrayLight2: 'rgba(225, 225, 225, 1)',
@@ -55,7 +56,7 @@ export const variable: IVariable = {
     colorSecondaryHover: 'rgba(0, 41, 63, 1)',
 
     // Font
-    fontColor: 'rgba(30, 30, 30, 1)',
+    fontColor: 'rgba(34, 34, 34, 1)',
     fontPrimary: 'opensans-regular',
     fontPrimaryBold: 'opensans-bold',
     fontPrimaryExtraBold: 'opensans-extrabold',

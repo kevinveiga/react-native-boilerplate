@@ -108,7 +108,7 @@ function MenuDrawerContent({ descriptors, navigation, state, props }: any): Reac
 
                 {status === ActionType.LOGGED_IN && (
                     <DrawerItem
-                        label="Logout"
+                        label={(): ReactElement => <Span>Logout</Span>}
                         onPress={(): any => {
                             actions
                                 ?.logout()

@@ -76,6 +76,7 @@ interface ITheme {
 }
 
 export const theme: ITheme = {
+    // React Elements
     Avatar: {
         rounded: true
     },
@@ -106,6 +107,8 @@ export const theme: ITheme = {
         },
         inputStyle: {
             backgroundColor: variable.colorWhite,
+            borderColor: variable.colorGrayLight,
+            borderWidth: 1,
             minHeight: variable.inputHeight,
             padding: 10
         },
@@ -128,6 +131,7 @@ export const theme: ITheme = {
             fontSize: variable.fontSize
         }
     },
+    // Others
     colors: {
         primary: variable.colorPrimary,
         secondary: variable.colorSecondary
