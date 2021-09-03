@@ -4,6 +4,10 @@ export interface IFormLogin {
     passwordConfirm?: string;
 }
 
+export interface ILoginPasswordReset {
+    email: string;
+}
+
 export interface IVariable {
     [key: string]: string | number;
 

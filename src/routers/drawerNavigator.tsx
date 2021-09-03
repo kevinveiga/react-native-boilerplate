@@ -60,7 +60,7 @@ function MenuDrawerContent({ descriptors, navigation, state, props }: any): Reac
                                 <DrawerItem
                                     activeTintColor={activeTintColor || variable.colorPrimary}
                                     focused={state.routes.findIndex((e: any) => e.name === routeLabel) === state.index}
-                                    inactiveTintColor={inactiveTintColor || variable.colorSecondary}
+                                    inactiveTintColor={inactiveTintColor || variable.fontColor}
                                     key={key}
                                     label={({ color }): ReactElement => <Span color={color}>{drawerLabel}</Span>}
                                     onPress={(): void => navigation.navigate(routeLabel)}
@@ -73,7 +73,7 @@ function MenuDrawerContent({ descriptors, navigation, state, props }: any): Reac
                                 <DrawerItem
                                     activeTintColor={activeTintColor || variable.colorPrimary}
                                     focused={state.routes.findIndex((e: any) => e.name === routeLabel) === state.index}
-                                    inactiveTintColor={inactiveTintColor || variable.colorSecondary}
+                                    inactiveTintColor={inactiveTintColor || variable.fontColor}
                                     key={key}
                                     label={({ color }): ReactElement => <Span color={color}>{drawerLabel}</Span>}
                                     onPress={(): void => navigation.navigate(routeLabel)}
@@ -84,7 +84,7 @@ function MenuDrawerContent({ descriptors, navigation, state, props }: any): Reac
 
                 <>
                     <DrawerItem
-                        inactiveTintColor={variable.colorSecondary}
+                        inactiveTintColor={variable.fontColor}
                         key="nossos-assessores"
                         label={({ color }): ReactElement => <Span color={color}>Nossos Assessores</Span>}
                         onPress={(): Promise<void | null> =>
@@ -95,7 +95,7 @@ function MenuDrawerContent({ descriptors, navigation, state, props }: any): Reac
                     />
 
                     <DrawerItem
-                        inactiveTintColor={variable.colorSecondary}
+                        inactiveTintColor={variable.fontColor}
                         key="contato"
                         label={({ color }): ReactElement => <Span color={color}>Contato</Span>}
                         onPress={(): Promise<void | null> =>
@@ -123,7 +123,7 @@ function MenuDrawerContent({ descriptors, navigation, state, props }: any): Reac
 
             <View style={styles.btnClose}>
                 <TouchableOpacity onPress={(): any => navigation.dispatch(DrawerActions.closeDrawer())}>
-                    <SvgClose height="18px" width="18px" fill={variable.colorSecondary} />
+                    <SvgClose height="18px" width="18px" fill={variable.colorBlack2} />
                 </TouchableOpacity>
             </View>
         </>
@@ -202,7 +202,7 @@ export function DrawerNavigator(): ReactElement {
                                             onPress={(): any => navigation.dispatch(DrawerActions.toggleDrawer())}
                                             style={styles.drawerNavigatorLeft}
                                         >
-                                            <SvgMenu height="25px" width="25px" fill={variable.colorSecondary} />
+                                            <SvgMenu height="25px" width="25px" fill={variable.colorBlack2} />
                                         </TouchableOpacity>
                                     );
                                 },
@@ -214,7 +214,7 @@ export function DrawerNavigator(): ReactElement {
                                             onPress={(): any => navigation.navigate('Notificações')}
                                             style={styles.drawerNavigatorRight}
                                         >
-                                            <SvgMessage height="25px" width="25px" fill={variable.colorSecondary} />
+                                            <SvgMessage height="25px" width="25px" fill={variable.colorBlack2} />
 
                                             {messagesNotReaded.length > 0 && (
                                                 <View style={styles.messageNumberWarp}>

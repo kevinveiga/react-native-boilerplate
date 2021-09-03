@@ -158,6 +158,12 @@ export function InputDefault({
         registerField<string>({
             name: fieldName,
             ref: inputRef.current,
+            clearValue: () => {
+                if (inputRef.current) {
+                    inputRef.current.setNativeProps({ text: '' });
+                    inputRef.current.value = '';
+                }
+            },
             getValue: () => {
                 if (inputRef.current) {
                     return inputRef.current.value;
@@ -169,12 +175,6 @@ export function InputDefault({
                 if (inputRef.current) {
                     inputRef.current.setNativeProps({ text: value });
                     inputRef.current.value = value;
-                }
-            },
-            clearValue: () => {
-                if (inputRef.current) {
-                    inputRef.current.setNativeProps({ text: '' });
-                    inputRef.current.value = '';
                 }
             }
         });
@@ -240,6 +240,12 @@ export function InputEmail({
         registerField<string>({
             name: fieldName,
             ref: inputRef.current,
+            clearValue: () => {
+                if (inputRef.current) {
+                    inputRef.current.setNativeProps({ text: '' });
+                    inputRef.current.value = '';
+                }
+            },
             getValue: () => {
                 if (inputRef.current) {
                     return inputRef.current.value;
@@ -251,12 +257,6 @@ export function InputEmail({
                 if (inputRef.current) {
                     inputRef.current.setNativeProps({ text: value });
                     inputRef.current.value = value;
-                }
-            },
-            clearValue: () => {
-                if (inputRef.current) {
-                    inputRef.current.setNativeProps({ text: '' });
-                    inputRef.current.value = '';
                 }
             }
         });
@@ -324,6 +324,12 @@ export function InputPassword({
         registerField<string>({
             name: fieldName,
             ref: inputRef.current,
+            clearValue() {
+                if (inputRef.current) {
+                    inputRef.current.setNativeProps({ text: '' });
+                    inputRef.current.value = '';
+                }
+            },
             getValue() {
                 if (inputRef.current) {
                     return inputRef.current.value;
@@ -335,12 +341,6 @@ export function InputPassword({
                 if (inputRef.current) {
                     inputRef.current.setNativeProps({ text: value });
                     inputRef.current.value = value;
-                }
-            },
-            clearValue() {
-                if (inputRef.current) {
-                    inputRef.current.setNativeProps({ text: '' });
-                    inputRef.current.value = '';
                 }
             }
         });
