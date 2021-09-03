@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react';
 import { Alert, Linking, StyleSheet, TouchableOpacity, View } from 'react-native';
 
 import { createDrawerNavigator, DrawerContentScrollView, DrawerItem, DrawerNavigationOptions } from '@react-navigation/drawer';
-import { DrawerActions } from '@react-navigation/native';
+import { CommonActions, DrawerActions, useNavigation } from '@react-navigation/native';
 
 import { useAuth } from '../contexts/auth';
 import { usePushNotification } from '../contexts/pushNotification';
@@ -24,7 +24,7 @@ import SvgMessage from '../assets/svg/svg-message.svg';
 
 const Drawer = createDrawerNavigator();
 
-function MenuDrawerContent({ descriptors, navigation, state, props }: any): ReactElement {
+function MenuDrawerContent({ descriptors, state, props }: any): ReactElement {
     // STYLE
     const styles = StyleSheet.create({
         btnClose: {
@@ -40,6 +40,7 @@ function MenuDrawerContent({ descriptors, navigation, state, props }: any): Reac
 
     // CONTEXT
     const { actions, stateAuth } = useAuth();
+    const navigation = useNavigation();
 
     // STATE
     const { status } = stateAuth;
@@ -63,7 +64,7 @@ function MenuDrawerContent({ descriptors, navigation, state, props }: any): Reac
                                     inactiveTintColor={inactiveTintColor || variable.fontColor}
                                     key={key}
                                     label={({ color }): ReactElement => <Span color={color}>{drawerLabel}</Span>}
-                                    onPress={(): void => navigation.navigate(routeLabel)}
+                                    onPress={(): void => navigation.dispatch(CommonActions.navigate({ name: routeLabel }))}
                                 />
                             );
                         }
@@ -76,7 +77,7 @@ function MenuDrawerContent({ descriptors, navigation, state, props }: any): Reac
                                     inactiveTintColor={inactiveTintColor || variable.fontColor}
                                     key={key}
                                     label={({ color }): ReactElement => <Span color={color}>{drawerLabel}</Span>}
-                                    onPress={(): void => navigation.navigate(routeLabel)}
+                                    onPress={(): void => navigation.dispatch(CommonActions.navigate({ name: routeLabel }))}
                                 />
                             );
                         }
@@ -113,7 +114,7 @@ function MenuDrawerContent({ descriptors, navigation, state, props }: any): Reac
                             actions
                                 ?.logout()
                                 .then(() => {
-                                    navigation.navigate('Home');
+                                    navigation.dispatch(CommonActions.navigate({ name: 'Home' }));
                                 })
                                 .catch((logoutError) => Alert.alert('Erro:', logoutError.toString(), [{ text: 'Fechar' }]));
                         }}
@@ -162,6 +163,7 @@ export function DrawerNavigator(): ReactElement {
 
     // CONTEXT
     const { stateAuth } = useAuth();
+    const navigation = useNavigation();
     const { statePushNotification } = usePushNotification();
 
     // STATE
@@ -187,7 +189,7 @@ export function DrawerNavigator(): ReactElement {
                         <Drawer.Screen
                             key={routeLabel}
                             name={routeLabel}
-                            options={({ navigation }): DrawerNavigationOptions => ({
+                            options={(): DrawerNavigationOptions => ({
                                 drawerLabel: routeLabel,
                                 headerTitle: (): ReactElement => {
                                     return (
@@ -211,7 +213,7 @@ export function DrawerNavigator(): ReactElement {
 
                                     return (
                                         <TouchableOpacity
-                                            onPress={(): any => navigation.navigate('Notificações')}
+                                            onPress={(): any => navigation.dispatch(CommonActions.navigate({ name: 'Notificações' }))}
                                             style={styles.drawerNavigatorRight}
                                         >
                                             <SvgMessage height="25px" width="25px" fill={variable.colorBlack2} />
