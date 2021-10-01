@@ -1,4 +1,4 @@
-import { ComponentProps, ComponentType } from 'react';
+import { IRoutes } from '../interface';
 
 import { LayoutAdmin } from '../components/layout/layoutAdmin';
 import { LayoutDefault } from '../components/layout/layoutDefault';
@@ -16,16 +16,6 @@ import * as MinhaConta from '../screens/minhaConta';
  * @param {string} routeLabel - Label da rota
  * @param {boolean} showInMenu - Mostra no menu
  */
-export interface IRoutes {
-    authRequired?: boolean;
-    component: ComponentType<ComponentProps<any>> | ComponentType<any>;
-    hasClienteLiberta?: boolean;
-    layout: ComponentType<ComponentProps<any>> | ComponentType<any>;
-    order?: number;
-    routeLabel: string;
-    showHeader?: boolean;
-    showInMenu?: boolean;
-}
 
 export const routes: IRoutes[] = [
     {

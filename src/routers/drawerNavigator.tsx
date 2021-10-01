@@ -6,7 +6,8 @@ import { CommonActions, DrawerActions, useNavigation } from '@react-navigation/n
 
 import { useAuth } from '../contexts/auth';
 import { usePushNotification } from '../contexts/pushNotification';
-import { routes, IRoutes } from './routes';
+import { IRoutes } from '../interface';
+import { routes } from './routes';
 import { ActionType } from '../stores/action/actionType';
 
 import { ErrorBoundary } from '../components/errorBoundary/errorBoundary';
@@ -49,14 +50,15 @@ function MenuDrawerContent({ descriptors, state, props }: any): ReactElement {
         <>
             <DrawerContentScrollView {...props}>
                 {routes
+                    .filter((item) => item.showInMenu === true)
                     .sort((a, b) => {
                         return (a.order || 0) - (b.order || 0);
                     })
-                    .map(({ authRequired = true, routeLabel, showInMenu = true }: IRoutes) => {
+                    .map(({ authRequired = true, routeLabel }: IRoutes) => {
                         const { key } = state.routes[state.routes.findIndex((item: any) => item.name === routeLabel)];
                         const { activeTintColor, drawerLabel, inactiveTintColor } = descriptors[key].options;
 
-                        if (!authRequired && showInMenu) {
+                        if (!authRequired) {
                             return (
                                 <DrawerItem
                                     activeTintColor={activeTintColor || variable.colorPrimary}
@@ -69,7 +71,7 @@ function MenuDrawerContent({ descriptors, state, props }: any): ReactElement {
                             );
                         }
 
-                        if (status === ActionType.LOGGED_IN && authRequired && showInMenu) {
+                        if (status === ActionType.LOGGED_IN && authRequired) {
                             return (
                                 <DrawerItem
                                     activeTintColor={activeTintColor || variable.colorPrimary}

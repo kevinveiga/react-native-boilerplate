@@ -85,7 +85,7 @@ export function AuthProvider({ children }: PropsWithChildren<any>): ReactElement
 
                     throw new Error(errorMsgDefault);
                 }
-            } catch (err) {
+            } catch (err: any) {
                 dispatch({
                     error: responseError(err?.response?.data?.errors),
                     type: ActionType.FAILED
