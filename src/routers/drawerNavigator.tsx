@@ -50,7 +50,7 @@ function MenuDrawerContent({ descriptors, state, props }: any): ReactElement {
         <>
             <DrawerContentScrollView {...props}>
                 {routes
-                    .filter((item) => item.showInMenu === true)
+                    .filter((item) => item.showInMenu !== false)
                     .sort((a, b) => {
                         return (a.order || 0) - (b.order || 0);
                     })
