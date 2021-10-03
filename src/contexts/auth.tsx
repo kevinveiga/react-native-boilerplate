@@ -1,5 +1,6 @@
 import React, { createContext, PropsWithChildren, ReactElement, useContext, useEffect, useReducer } from 'react';
 
+import { useApp } from './app';
 import { errorMsgDefault, storageAuthName } from '../config';
 import { responseError } from '../helpers/responseError';
 import { api } from '../services/api';
@@ -24,8 +25,24 @@ const AuthContext = createContext<IAuthContext>({
 });
 
 export function AuthProvider({ children }: PropsWithChildren<any>): ReactElement {
+    // CONTEXT
+    const { setStateLoader } = useApp();
+
     // REDUCER
     const [stateAuth, dispatch] = useReducer(authReducer, initialState);
+    const { status } = stateAuth;
+
+    // USEEFFECT
+    // Loader no login
+    useEffect(() => {
+        if (status === ActionType.ATTEMPTING) {
+            setStateLoader(true);
+        }
+
+        return (): void => {
+            setStateLoader(false);
+        };
+    }, [status, setStateLoader]);
 
     // Ao iniciar o App, verifica se já existe um storage de autenticação,
     // então pega o "data" desse storage e faz um dispatch alterando "stateAuth"
