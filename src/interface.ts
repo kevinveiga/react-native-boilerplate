@@ -20,12 +20,6 @@ export interface IInput extends TextInputProps {
     theme?: IInputStyle;
 }
 
-export interface IInputCheckboxRadioItems {
-    id: string;
-    label: string;
-    value: string;
-}
-
 export interface IInputReference extends TextInput {
     value: string;
 }
