@@ -430,6 +430,8 @@ stateNotifications.length > 0;
 
 -   [Radio button](https://github.com/moschan/react-native-simple-radio-button)
 
+-   [Select](https://github.com/react-native-picker/picker)
+
 #### **NAVIGATION**
 
 -   [React Navigation](https://reactnavigation.org/)
