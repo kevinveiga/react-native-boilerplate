@@ -2,17 +2,17 @@
 
 ### **REQUISITOS DO PROJETO**
 
-#### **GIT**
+##### **GIT**
 
 -   Instalar o [GIT](https://www.digitalocean.com/community/tutorials/como-instalar-o-git-no-ubuntu-18-04-inicio-rapido-pt)
 
-#### **NODEJS**
+##### **NODEJS**
 
 -   Instalar o [NodeJS versão 14](https://nodejs.org/en/download/) para o projeto, sem utilizar o nvm já que o husky não funciona corretamente com o nvm.
 
 **Caso opte por mesmo assim utilizar o nvm terá que desinstalar todas as outras versões (menos a 14) para poder comitar as alterações do projeto.**
 
-#### **YARN**
+##### **YARN**
 
 -   Caso não tenha o yarn instalado utilize o comando:
 
@@ -22,18 +22,18 @@ sudo npm install -g yarn
 
 ### **CONFIGURAÇÕES DE IDE**
 
-#### **INSTALAÇÃO DE PLUGINS**
+##### **INSTALAÇÃO DE PLUGINS**
 
 -   EditorConfig (exemplo no VS Code: EditorConfig for VS Code)
 -   ESLint (exemplo no VS Code: ESLint)
 -   Prettier (exemplo no VS Code: Prettier - Code formatter)
 -   Styled Components (exemplo no VS Code: vscode-styled-components (Julien Poissonnier))
 
-#### **CONFIGURAÇÃO**
+##### **CONFIGURAÇÃO**
 
 -   Configurar para formatar o código ao salvar o arquivo
 
-#### **VS CODE CONFIGURAÇÃO**
+##### **VS CODE CONFIGURAÇÃO**
 
 ```js
 "[javascript]": {
@@ -64,7 +64,7 @@ Pastas dentro de src:
 -   stores: Actions, reducers e custom hooks
 -   styles: Estilos do aplicativo
 
-#### **NOTAS DE CÓDIGO**
+##### **NOTAS DE CÓDIGO**
 
 -   Seguindo padrões mais novos do React, **NÃO USE CONST PARA COMPONENTES**. Olhando os exemplos mais novos, componentes são declarados como function ao invés de const. O motivo principal do React estar usando function ao invés de declarar const, é que a function funciona fora de ordem na chamada, e const precisa estar declarado anteriormente ao uso do mesmo. Um componente não é constante, e sim, função. Faz sentido usar const para funções anônimas, mas o componente por si só não é função anônima, e sim, uma função bem definida.
 -   Funções compartilhadas, ficam dentro de helpers apropriados. Não fique espalhando com Copy/Paste, códigos duplicados.
@@ -82,7 +82,7 @@ Pastas dentro de src:
 
 ### **ANDROID**
 
-#### **CONFIGURAÇÃO**
+##### **CONFIGURAÇÃO**
 
 -   Instalação de NodeJS, Yarn e Android Studio de acordo com esse link [https://react-native.rocketseat.dev/android/linux](https://react-native.rocketseat.dev/android/linux)
 
@@ -158,12 +158,12 @@ alias cd='cdnvm'
 cd $PWD
 ```
 
-#### **CHAVE SHA1**
+##### **CHAVE SHA1**
 
 -   Para pegar a chave SHA1, digite no terminal:
     keytool -list -v -alias androiddebugkey -keystore android/app/debug.keystore
 
-#### **EMULADOR**
+##### **EMULADOR**
 
 -   Melhor opção para emulador é utilizando um aparelho, seguir este link [https://react-native.rocketseat.dev/usb/android](https://react-native.rocketseat.dev/usb/android)
 
@@ -171,18 +171,18 @@ cd $PWD
 
 <!-- TODO -->
 
-#### **EMULADOR**
+##### **EMULADOR**
 
-Melhor opção para emulador é utilizando um aparelho, seguir este link [https://react-native.rocketseat.dev/usb/ios](https://react-native.rocketseat.dev/usb/ios)
+-   Melhor opção para emulador é utilizando um aparelho, seguir este link [https://react-native.rocketseat.dev/usb/ios](https://react-native.rocketseat.dev/usb/ios)
 
 ### **CONFIGURAÇÕES DO AMBIENTE**
 
-##### Primeira execução ou sempre que atualizar o package.json
+#### Primeira execução ou sempre que atualizar o package.json
 
 -   Executar no terminal:
     yarn install
 
-##### Ambiente de desenvolvimento por USB (com o aparelho conectado e autorizado)
+#### Ambiente de desenvolvimento por USB (com o aparelho conectado e autorizado)
 
 -   Executar server em um terminal:
     yarn start --reset-cache
@@ -199,7 +199,7 @@ Melhor opção para emulador é utilizando um aparelho, seguir este link [https:
     ou a versão de produção
     yarn ios --variant=release
 
-##### Android: Gerar arquivo APK
+#### Android: Gerar arquivo APK
 
 -   MUITO CUIDADO ao fazer qualquer alteração dentro de "android", pode estar funcionando no emulador, mas não funcionar no APK
 
@@ -230,7 +230,7 @@ Melhor opção para emulador é utilizando um aparelho, seguir este link [https:
 
 -   [Como instalar aplicativo APK no Android](https://www.tekimobile.com/dicas/como-instalar-aplicativos-apk-no-seu-android-manualmente/)
 
-#### **REFERÊNCIAS**
+##### **REFERÊNCIAS**
 
 -   [https://developer.android.com/](https://developer.android.com/)
 
@@ -247,7 +247,7 @@ Melhor opção para emulador é utilizando um aparelho, seguir este link [https:
 
 -   [Problemas com React Native Reanimated](https://docs.swmansion.com/react-native-reanimated/docs/installation/)
 
-#### **Android**
+##### **Android**
 
 -   Erro ao executar algum comando ou se a tela do app não abre no celular
 
@@ -258,23 +258,23 @@ Melhor opção para emulador é utilizando um aparelho, seguir este link [https:
 
 ### **JAVASCRIPT**
 
-#### **BOAS PRÁTICAS**
+##### **BOAS PRÁTICAS**
 
 -   [Usar Optional Chaining](https://medium.com/@guigaoliveira_/entendendo-o-optional-chaining-no-javascript-964ca6928598)
 
 -   [Usar Destructuring](https://crunchtech.medium.com/object-destructuring-best-practice-in-javascript-9c8794699a0d)
 
-#### **BIBLIOTECAS**
+##### **BIBLIOTECAS**
 
 -   [Dayjs](https://day.js.org/docs/en/installation/typescript)
 
-#### **DOCUMENTAÇÃO JS**
+##### **DOCUMENTAÇÃO JS**
 
 -   [JSDOC](https://www.valentinog.com/blog/jsdoc/)
 
 ### **REACT**
 
-#### **BOAS PRÁTICAS**
+##### **BOAS PRÁTICAS**
 
 -   [10 coisas que não se deve fazer no React](https://medium.com/better-programming/10-things-not-to-do-when-building-react-applications-bc26d4f38644);
 
@@ -286,7 +286,7 @@ Melhor opção para emulador é utilizando um aparelho, seguir este link [https:
 
 -   [Usar ES6 default values e não defaultProps](https://medium.com/@matanbobi/react-defaultprops-is-dying-whos-the-contender-443c19d9e7f1)
 
-#### **ORGANIZAÇÃO**
+##### **ORGANIZAÇÃO**
 
 -   Organizar "import" na ordem correta, tanto na ordem de contexto como na ordem alfabética. Ex:
 
@@ -360,7 +360,7 @@ export default function ComponentName(): ReactElement {
 
 ### **REACT NATIVE**
 
-#### **BOAS PRÁTICAS**
+##### **BOAS PRÁTICAS**
 
 -   Componentes, custom hooks, reducers não devem ser constantes, eu seja, funções do React são declaradas como function, já em Styled Components, funções de JavaScript, utilize const. Ex:
 
@@ -410,7 +410,7 @@ stateNotifications.length > 0;
 
 -   Evitar utilizar estilos no componente de ScrollView, neste componente algumas propriedades não funcionam
 
-#### **AUTENTICAÇÃO**
+##### **AUTENTICAÇÃO**
 
 -   [Autenticação](https://www.youtube.com/watch?v=J7pkSP18Oko&ab_channel=PradipDebnath)
 
@@ -418,11 +418,11 @@ stateNotifications.length > 0;
 
 -   [Autenticação do Google](https://rnfirebase.io/auth/social-auth)
 
-#### **FONT**
+##### **FONT**
 
 -   [Custom fonts](https://mehrankhandev.medium.com/ultimate-guide-to-use-custom-fonts-in-react-native-77fcdf859cf4)
 
-#### **FORM**
+##### **FORM**
 
 -   [Unform](https://unform.dev)
 
@@ -432,7 +432,7 @@ stateNotifications.length > 0;
 
 -   [Select](https://github.com/react-native-picker/picker)
 
-#### **NAVIGATION**
+##### **NAVIGATION**
 
 -   [React Navigation](https://reactnavigation.org/)
 
@@ -440,7 +440,7 @@ stateNotifications.length > 0;
 
 -   [React Navigation - Quando não tem acesso a propriedade navigation](https://reactnavigation.org/docs/navigating-without-navigation-prop/)
 
-#### **PUSH NOTIFICATION**
+##### **PUSH NOTIFICATION**
 
 -   [Tutorial - React-Native-Firebase](http://www2.decom.ufop.br/terralab/saiba-como-implementar-o-servico-de-notificacoes-no-seu-app-react-native-utilizando-a-firebase/?unapproved=213110&moderation-hash=4570d8aad459018ada353e0de43faa4c)
 
@@ -482,19 +482,19 @@ stateNotifications.length > 0;
         }
         ````
 
-#### **REFERÊNCIAS**
+##### **REFERÊNCIAS**
 
 -   [Navegação, Autenticação e Context API](https://www.youtube.com/watch?v=KISMYYXSIX8&list=PLFeoM_Vx7KVaboPP4guU9qHobY9qA8a6k&index=10&ab_channel=Rocketseat)
 
 ### **STYLE**
 
-#### **BIBLIOTECAS**
+##### **BIBLIOTECAS**
 
 -   [React Native Elements](https://reactnativeelements.com/)
 
 -   [React Native SVG](https://medium.com/mtholla/react-native-how-to-use-svgs-193e384e1d1b)
 
-#### **COMPONENTES E PROPRIEDADES**
+##### **COMPONENTES E PROPRIEDADES**
 
 -   [FlexBox - React Native](https://reactnative.dev/docs/flexbox)
 
@@ -502,7 +502,7 @@ stateNotifications.length > 0;
 
 ### **TYPESCRIPT**
 
-#### **BOAS PRÁTICAS**
+##### **BOAS PRÁTICAS**
 
 -   [Não usar React.FC](https://fettblog.eu/typescript-react-why-i-dont-use-react-fc/)
 
@@ -510,9 +510,9 @@ stateNotifications.length > 0;
 
 -   [Usar Interface e ReactElement - Exemplos](https://thoughtbot.com/blog/type-safe-state-modeling-with-typescript-and-react-hooks)
 
-#### **EXEMPLOS**
+##### **EXEMPLOS**
 
-##### ChangeEvent:
+#### ChangeEvent:
 
 ```jsx
 onChangeText={(
@@ -522,7 +522,7 @@ onChangeText={(
 }}
 ```
 
-#### **REFERÊNCIAS**
+##### **REFERÊNCIAS**
 
 -   [VS Code e TypeScript](https://code.visualstudio.com/docs/languages/typescript)
 
@@ -536,7 +536,7 @@ onChangeText={(
 
 ### **SVG**
 
-#### **OTIMIZAÇÃO**
+##### **OTIMIZAÇÃO**
 
 -   Limpar código desnecessário, combinar paths quando possível, deixar com o fill default, tirar sobras da viewbox do svg, entre outras otimizações, tudo isso pode ser feito com o programa [Inkscape](https://inkscape.org/release/inkscape-master/?latest=1)
 
