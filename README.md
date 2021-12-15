@@ -68,8 +68,6 @@ Pastas dentro de src:
 
 -   Seguindo padrões mais novos do React, **NÃO USE CONST PARA COMPONENTES**. Olhando os exemplos mais novos, componentes são declarados como function ao invés de const. O motivo principal do React estar usando function ao invés de declarar const, é que a function funciona fora de ordem na chamada, e const precisa estar declarado anteriormente ao uso do mesmo. Um componente não é constante, e sim, função. Faz sentido usar const para funções anônimas, mas o componente por si só não é função anônima, e sim, uma função bem definida.
 -   Funções compartilhadas, ficam dentro de helpers apropriados. Não fique espalhando com Copy/Paste, códigos duplicados.
--   Ao invés de implementar algo novo, **USE O QUE JÁ TEMOS**. Não queremos uma função nova "Super-Pica das Galáxias" que faça tudo. Use as que já tem, olhe nos helpers, e reaproveite. Se uma funcionalidade está faltando algo, aprimore-a ao invés de criar algo novo do seu gosto. É código _COLABORATIVO_, não código individual.
--   **NÃO QUEREMOS FUNCIONALIDADES DO TIPO ShortDate2, ShortDate3, ShortDateInfinito**. Pense um pouco em como nomear melhor as funcionalidades.
 
 ### **PADRÕES DO PROJETO**
 
@@ -170,10 +168,6 @@ cd $PWD
 ### **IOS**
 
 <!-- TODO -->
-
-##### **EMULADOR**
-
--   Melhor opção para emulador é utilizando um aparelho, seguir este link [https://react-native.rocketseat.dev/usb/ios](https://react-native.rocketseat.dev/usb/ios)
 
 ### **CONFIGURAÇÕES DO AMBIENTE**
 
@@ -276,7 +270,7 @@ cd $PWD
 
 ##### **BOAS PRÁTICAS**
 
--   [10 coisas que não se deve fazer no React](https://medium.com/better-programming/10-things-not-to-do-when-building-react-applications-bc26d4f38644);
+-   [10 coisas que não se deve fazer no React](https://medium.com/better-programming/10-things-not-to-do-when-building-react-applications-bc26d4f38644)
 
 -   [React Clean Code](https://javascript.plainenglish.io/6-important-tips-to-write-clean-react-code-5ef29d6a73a6)
 
@@ -300,7 +294,7 @@ import { NavigationContainer } from '@react-navigation/native';
 
 // OTHERS
 import { apiUrlLogin } from '../config';
-import { useAuth } from '../../context/auth';
+import { useAuth } from '../../contexts/auth';
 import { maskPhone } from './helpers/mask';
 
 // COMPONENT
@@ -362,7 +356,7 @@ export default function ComponentName(): ReactElement {
 
 ##### **BOAS PRÁTICAS**
 
--   Componentes, custom hooks, reducers não devem ser constantes, eu seja, funções do React são declaradas como function, já em Styled Components, funções de JavaScript, utilize const. Ex:
+-   Componentes, custom hooks, reducers não devem ser constantes, eu seja, funções do React são declaradas como function, já em funções de JavaScript, utilize const. Ex:
 
 ```jsx
 function Home(): ReactElement {
@@ -378,7 +372,7 @@ export const HomeStyled = styled.div`...`;
 export const maskPhone = (value: string): IMask => {...}
 ```
 
--   Usar export default somente em componentes da pasta "src/pages", exceto em funções expecíficas. Ex:
+-   Usar export default somente em componentes da pasta "src/screens", exceto em funções expecíficas. Ex:
 
 ```jsx
 import * as yup from 'yup';
@@ -403,7 +397,7 @@ export default MyApp;
 -   Quando for usar a verificação de length no jsx, SEMPRE usar um operador de comparação. Ex:
 
 ```jsx
-stateNotifications.length > 0;
+stateLista.length > 0;
 ```
 
 -   Não se deve usar um componente de listagem do React Native (ex: FlatList) dentro de um componente ScrollView, por isso o ScrollView é utilizado somente nos locais necessários e não direto no componente de layout pai
