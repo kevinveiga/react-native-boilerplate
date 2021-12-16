@@ -4,7 +4,7 @@
         "allowJs": true /* Allow javascript files to be compiled. */,
         "isolatedModules": true /* Transpile each file as a separate module (similar to 'ts.transpileModule'). */,
         "jsx": "react-native" /* Specify JSX code generation: 'preserve', 'react-native', or 'react'. */,
-        "lib": ["es6"] /* Specify library files to be included in the compilation. */,
+        "lib": ["es2017"] /* Specify library files to be included in the compilation. */,
         "module": "esnext" /* Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', or 'esnext'. */,
         "noEmit": true /* Do not emit outputs. */,
         "rootDir": "./" /* Specify the root directory of input files. Use to control the output directory structure with --outDir. */,
