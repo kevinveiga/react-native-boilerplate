@@ -18,18 +18,32 @@
     ],
     "overrides": [
         {
+            "files": ["*.js"],
+            "rules": {
+                "@typescript-eslint/explicit-module-boundary-types": ["off"],
+                "@typescript-eslint/init-declarations": ["off"],
+                "@typescript-eslint/no-explicit-any": ["off"],
+                "@typescript-eslint/no-unsafe-argument": ["off"],
+                "@typescript-eslint/no-unsafe-assignment": ["off"],
+                "@typescript-eslint/no-unsafe-call": ["off"],
+                "@typescript-eslint/no-unsafe-member-access": ["off"],
+                "@typescript-eslint/no-unsafe-return": ["off"]
+            }
+        },
+        {
             "files": ["*.ts", "*.tsx"],
             "rules": {
                 "@typescript-eslint/ban-ts-comment": ["warn"],
                 "@typescript-eslint/explicit-function-return-type": ["error"],
                 "@typescript-eslint/explicit-member-accessibility": ["error", { "accessibility": "no-public" }],
-                "@typescript-eslint/explicit-module-boundary-types": ["error"],
+                "@typescript-eslint/explicit-module-boundary-types": ["off"],
                 "@typescript-eslint/init-declarations": ["off"],
                 "@typescript-eslint/no-empty-interface": ["warn"],
                 "@typescript-eslint/no-explicit-any": ["off"],
                 "@typescript-eslint/no-non-null-assertion": ["error"],
                 "@typescript-eslint/no-redeclare": ["error"],
                 "@typescript-eslint/no-shadow": ["error"],
+                "@typescript-eslint/no-unsafe-argument": ["off"],
                 "@typescript-eslint/no-unsafe-assignment": ["off"],
                 "@typescript-eslint/no-unsafe-call": ["off"],
                 "@typescript-eslint/no-unsafe-member-access": ["off"],

@@ -13,8 +13,6 @@ import { ActionType } from '../stores/action/actionType';
 import { ErrorBoundary } from '../components/errorBoundary/errorBoundary';
 import { Span } from '../components/text/text';
 
-import MinhaContaClientesLiberta from '../screens/minhaConta/minhaContaClientesLiberta';
-
 import { header } from '../styles/header';
 import { variable } from '../styles/variable';
 
@@ -169,7 +167,7 @@ export function DrawerNavigator(): ReactElement {
     const { statePushNotification } = usePushNotification();
 
     // STATE
-    const { data: dataAuth, status } = stateAuth;
+    const { status } = stateAuth;
     const dataPushNotification = Array.isArray(statePushNotification?.data) ? statePushNotification.data : [];
 
     return (
@@ -178,84 +176,67 @@ export function DrawerNavigator(): ReactElement {
             initialRouteName={status === ActionType.LOGGED_IN ? 'Cursos' : 'Home'}
             screenOptions={{ ...header, headerTitleAlign: 'center' }}
         >
-            {routes.map(
-                ({
-                    authRequired = true,
-                    component: Component,
-                    hasClienteLiberta = false,
-                    layout: Layout,
-                    routeLabel,
-                    showHeader = true
-                }: IRoutes) => {
-                    return (
-                        <Drawer.Screen
-                            key={routeLabel}
-                            name={routeLabel}
-                            options={(): DrawerNavigationOptions => ({
-                                drawerLabel: routeLabel,
-                                headerTitle: (): ReactElement => {
-                                    return (
-                                        <View style={styles.logoWrapper}>
-                                            <SvgLogo height="100%" width="100%" />
-                                        </View>
-                                    );
-                                },
-                                headerLeft: (): ReactElement => {
-                                    return (
-                                        <TouchableOpacity
-                                            onPress={(): any => navigation.dispatch(DrawerActions.toggleDrawer())}
-                                            style={styles.drawerNavigatorLeft}
-                                        >
-                                            <SvgMenu height="25px" width="25px" fill={variable.colorBlack2} />
-                                        </TouchableOpacity>
-                                    );
-                                },
-                                headerRight: (): ReactElement => {
-                                    const messagesNotReaded = dataPushNotification.filter((item) => item.notReaded);
+            {routes.map(({ authRequired = true, component: Component, layout: Layout, routeLabel, showHeader = true }: IRoutes) => {
+                return (
+                    <Drawer.Screen
+                        key={routeLabel}
+                        name={routeLabel}
+                        options={(): DrawerNavigationOptions => ({
+                            drawerLabel: routeLabel,
+                            headerTitle: (): ReactElement => {
+                                return (
+                                    <View style={styles.logoWrapper}>
+                                        <SvgLogo height="100%" width="100%" />
+                                    </View>
+                                );
+                            },
+                            headerLeft: (): ReactElement => {
+                                return (
+                                    <TouchableOpacity
+                                        onPress={(): any => navigation.dispatch(DrawerActions.toggleDrawer())}
+                                        style={styles.drawerNavigatorLeft}
+                                    >
+                                        <SvgMenu height="25px" width="25px" fill={variable.colorBlack2} />
+                                    </TouchableOpacity>
+                                );
+                            },
+                            headerRight: (): ReactElement => {
+                                const messagesNotReaded = dataPushNotification.filter((item) => item.notReaded);
 
-                                    return (
-                                        <TouchableOpacity
-                                            onPress={(): any => navigation.dispatch(CommonActions.navigate({ name: 'Notificações' }))}
-                                            style={styles.drawerNavigatorRight}
-                                        >
-                                            <SvgMessage height="25px" width="25px" fill={variable.colorBlack2} />
+                                return (
+                                    <TouchableOpacity
+                                        onPress={(): any => navigation.dispatch(CommonActions.navigate({ name: 'Notificações' }))}
+                                        style={styles.drawerNavigatorRight}
+                                    >
+                                        <SvgMessage height="25px" width="25px" fill={variable.colorBlack2} />
 
-                                            {messagesNotReaded.length > 0 && (
-                                                <View style={styles.messageNumberWarp}>
-                                                    <Span color={variable.colorRed} bold={true} fontSize={8}>
-                                                        {messagesNotReaded.length < 10 ? messagesNotReaded.length : '+9'}
-                                                    </Span>
-                                                </View>
-                                            )}
-                                        </TouchableOpacity>
-                                    );
-                                },
-                                headerShown: showHeader
-                            })}
-                        >
-                            {(): ReactElement => (
-                                <Layout>
-                                    <ErrorBoundary>
-                                        {/* Exibe componente que não precisa de autenticação */}
-                                        {!authRequired && <Component />}
+                                        {messagesNotReaded.length > 0 && (
+                                            <View style={styles.messageNumberWarp}>
+                                                <Span color={variable.colorRed} bold={true} fontSize={8}>
+                                                    {messagesNotReaded.length < 10 ? messagesNotReaded.length : '+9'}
+                                                </Span>
+                                            </View>
+                                        )}
+                                    </TouchableOpacity>
+                                );
+                            },
+                            headerShown: showHeader
+                        })}
+                    >
+                        {(): ReactElement => (
+                            <Layout>
+                                <ErrorBoundary>
+                                    {/* Exibe componente que não precisa de autenticação */}
+                                    {!authRequired && <Component />}
 
-                                        {/* Se estiver logado, verifica se a rota precisa de autenticação e autorização Cliente Liberta,
-                                        verifica se o usuário tem essa autorização Cliente Liberta (dataAuth?.is_cliente_liberta),
-                                        caso não tenha, mostra para informações de Cliente Liberta. */}
-                                        {status === ActionType.LOGGED_IN &&
-                                            authRequired &&
-                                            (hasClienteLiberta && dataAuth?.is_cliente_liberta === false ? (
-                                                <MinhaContaClientesLiberta />
-                                            ) : (
-                                                <Component />
-                                            ))}
-                                    </ErrorBoundary>
-                                </Layout>
-                            )}
-                        </Drawer.Screen>
-                    );
-                }
-            )}
+                                    {/* Exibe componente se a rota precisa de autenticação e o usuário está logado */}
+                                    {authRequired && status === ActionType.LOGGED_IN && <Component />}
+                                </ErrorBoundary>
+                            </Layout>
+                        )}
+                    </Drawer.Screen>
+                );
+            })}
         </Drawer.Navigator>
     );
 }

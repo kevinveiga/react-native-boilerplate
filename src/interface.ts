@@ -47,7 +47,6 @@ export interface IPickerSelect extends TextInput {
 export interface IRoutes {
     authRequired?: boolean;
     component: ComponentType<ComponentProps<any>> | ComponentType<any>;
-    hasClienteLiberta?: boolean;
     layout: ComponentType<ComponentProps<any>> | ComponentType<any>;
     order?: number;
     routeLabel: string;
