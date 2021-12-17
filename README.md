@@ -233,9 +233,9 @@ cd $PWD
 ### **PROBLEMAS QUE PODEM OCORRER**
 
 -   Se for alterado o valor de "appName" no arquivo app.json, para de funcionar o app, sempre que for necessário alterar esse valor, se deve mudar também em vários arquivos do Android e do IOS, uma alternativa é criar outro projeto e executar o comando:
-    yarn react-native init novo_nome --template react-native-template-typescript
+    npx react-native init novo_nome --template react-native-template-typescript
 
--   Caso as alterações não estejam aparecendo na tela, no terminal digite R para atualizar o emulador
+-   Caso as alterações não estejam aparecendo na tela, no terminal onde está executando o server, digite R para atualizar o emulador
 
 -   Problema de commit no Rusky com a mensagem de versão do NodeJS, reinicie o VS Code
 
@@ -243,12 +243,12 @@ cd $PWD
 
 #### **Android**
 
--   Erro ao executar algum comando ou se a tela do app não abre no celular
-
+-   Erro ao executar algum comando, ou tela do app não abre no celular, ou algum erro que parece já ter sido corrigido:
     -   Executar no terminal:
         cd android && ./gradlew clean && cd ..
     -   E depois:
         yarn start --reset-cache
+    -   Se persistir o erro, pare os processos, desconecte o celular, remova a pasta node_modules, instale novamente as bibliotecas e execute novamente
 
 ### **JAVASCRIPT**
 
