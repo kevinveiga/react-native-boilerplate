@@ -1,0 +1,31 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Shell (liberta stack)",
+            "type": "shell",
+            "command": "docker-compose -f ../docker-compose.yml exec novainvestimentos bash",
+            "problemMatcher": []
+        },
+        {
+            "label": "Restart (liberta stack)",
+            "type": "shell",
+            "command": "docker-compose -f ../docker-compose.yml restart novainvestimentos",
+            "problemMatcher": []
+        },
+        {
+            "label": "Logs (liberta stack)",
+            "type": "shell",
+            "command": "docker-compose -f ../docker-compose.yml logs --tail=300 -f novainvestimentos",
+            "problemMatcher": []
+        },
+        {
+            "label": "Rebuild node_modules (liberta stack)",
+            "type": "shell",
+            "command": "docker-compose -f ../docker-compose.yml exec novainvestimentos bash -c \"rm -rf node_modules && npm i\"; docker-compose -f ../docker-compose.yml restart novainvestimentos",
+            "problemMatcher": []
+        }
+    ]
+}

@@ -15,7 +15,6 @@ web-build/
 !.env.template
 
 # IDE and Editors
-/.vscode
 /nbproject
 /packages/api/etc
 *.sublime-project
