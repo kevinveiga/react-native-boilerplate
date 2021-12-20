@@ -22,12 +22,12 @@ sudo npm install -g yarn
 
 ### **CONFIGURAÇÕES DE IDE**
 
-#### **INSTALAÇÃO DE PLUGINS**
+#### IDE - INSTALAÇÃO DE EXTENSÕES:
 
--   EditorConfig (exemplo no VS Code: EditorConfig for VS Code)
--   ESLint (exemplo no VS Code: ESLint)
--   Prettier (exemplo no VS Code: Prettier - Code formatter)
--   Styled Components (exemplo no VS Code: vscode-styled-components (Julien Poissonnier))
+-   EditorConfig (nome no VS Code: EditorConfig for VS Code)
+-   ESLint (nome no VS Code: ESLint)
+-   Prettier (nome no VS Code: Prettier - Code formatter)
+-   Styled Components (nome no VS Code: vscode-styled-components (Julien Poissonnier))
 
 #### **CONFIGURAÇÃO**
 
